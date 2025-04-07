@@ -20,7 +20,7 @@ function Home() {
     notices: null
   });
 
-  const apiUrl = import.meta.env.VITE_API_URL || '';
+  const apiUrl = import.meta.env.VITE_API_URL;
   
   // Handle modal close with useCallback to prevent unnecessary re-renders
   const handleCloseNoticeModal = useCallback(() => {
@@ -57,8 +57,8 @@ function Home() {
         }
         
         // Fetch fresh data if no cache or cache expired
-        const response = await axios.get(`${apiUrl}/notice`, { signal });
-        
+        const response = await axios.get(`${apiUrl}/notice`, {credential: true ,signal });
+        console.log("response", response.data);
         const formattedNotices = response.data.map(notice => ({
           id: notice._id,
           title: notice.title,

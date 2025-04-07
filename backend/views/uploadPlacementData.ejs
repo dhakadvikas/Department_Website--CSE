@@ -552,7 +552,8 @@
                 try {
                     const response = await fetch('/placement/upload', {
                         method: 'POST',
-                        body: formData
+                        body: formData,
+                        credentials: 'include',
                     });
                     
                     clearInterval(progressInterval);

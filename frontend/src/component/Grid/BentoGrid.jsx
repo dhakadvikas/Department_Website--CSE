@@ -326,7 +326,7 @@ const BentoGrid = () => {
         const fetchAllData = async () => {
             // Fetch notices
             try {
-                const noticeResponse = await axios.get(`${apiUrl}/notice`, { signal });
+                const noticeResponse = await axios.get(`${apiUrl}/notice`, { credential:true, signal });
                 setData(prev => ({
                     ...prev,
                     notices: noticeResponse.data.map(notice => ({
