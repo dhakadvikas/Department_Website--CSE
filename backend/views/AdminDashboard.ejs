@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Admin Dashboard</title>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold">Admin Dashboard</span>
+                </div>
+                <div class="flex items-center">
+                    <button class="p-2 rounded-full hover:bg-blue-600 transition">
+                        <i class="fas fa-user-circle text-xl"></i> Admin
+                    </button>
+                   
+                    <a href="/admin/logout"  class="p-2 rounded-full hover:bg-blue-600 transition ml-2">
+                        <i class="fas fa-sign-out-alt text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-lg h-screen">
+            <div class="pt-6 pb-4">
+                <div class="px-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Admin Panel</h2>
+                </div>
+                <nav class="mt-6">
+                    <div class="px-4 space-y-1">
+                        <a href="/admin/notice" class="group flex items-center px-4 py-3 text-gray-700 rounded-md hover:bg-blue-50 hover:text-blue-700 transition">
+                            <i class="fas fa-bell mr-3 text-gray-500 group-hover:text-blue-600"></i>
+                            <span class="font-medium">Notices</span>
+                        </a>
+                        <a href="/admin/faculty" class="group flex items-center px-4 py-3 text-gray-700 rounded-md hover:bg-blue-50 hover:text-blue-700 transition">
+                            <i class="fas fa-users mr-3 text-gray-500 group-hover:text-blue-600"></i>
+                            <span class="font-medium">Faculty</span>
+                        </a>
+                        <a href="/admin/events" class="group flex items-center px-4 py-3 text-gray-700 rounded-md hover:bg-blue-50 hover:text-blue-700 transition">
+                            <i class="fas fa-calendar-alt mr-3 text-gray-500 group-hover:text-blue-600"></i>
+                            <span class="font-medium">Events</span>
+                        </a>
+                        <a href="/admin/academics" class="group flex items-center px-4 py-3 text-gray-700 rounded-md hover:bg-blue-50 hover:text-blue-700 transition">
+                            <i class="fas fa-graduation-cap mr-3 text-gray-500 group-hover:text-blue-600"></i>
+                            <span class="font-medium">Academics</span>
+                        </a>
+
+                        <a href="/admin/manageStudent" class="group flex items-center px-4 py-3 text-gray-700 rounded-md hover:bg-blue-50 hover:text-blue-700 transition">
+                            <i class="fas fa-users mr-3 text-gray-500 group-hover:text-blue-600"></i>
+                            <span class="font-medium">Student Detained Management</span>
+                        </a>
+                        <a href="/admin/student/upload" class="group flex items-center px-4 py-3 text-gray-700 rounded-md hover:bg-blue-50 hover:text-blue-700 transition">
+                            <i class="fas fa-users mr-3 text-gray-500 group-hover:text-blue-600"></i>
+                            <span class="font-medium">Upload Student Data </span>
+                        </a>
+                        <a href="/admin/placement/upload" class="group flex items-center px-4 py-3 text-gray-700 rounded-md hover:bg-blue-50 hover:text-blue-700 transition">
+                            <i class="fas fa-users mr-3 text-gray-500 group-hover:text-blue-600"></i>
+                            <span class="font-medium">Upload Placement Data </span>
+
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-gray-800">Welcome, Admin!</h1>
+                <p class="text-gray-600 mt-1">Here's what's happening today</p>
+            </div>
+
+            <!-- Dashboard Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-bell text-blue-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h2 class="text-lg font-semibold text-gray-700">Notices</h2>
+                            <p class="text-gray-500">Manage all notices</p>
+                        </div>
+                    </div>
+                    <a href="/admin/notice" class="mt-4 inline-block text-sm text-blue-600 font-medium hover:text-blue-800">View Details →</a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                    <div class="flex items-center">
+                        <div class="bg-green-100 p-3 rounded-full">
+                            <i class="fas fa-users text-green-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h2 class="text-lg font-semibold text-gray-700">Faculty</h2>
+                            <p class="text-gray-500">Manage faculty members</p>
+                        </div>
+                    </div>
+                    <a href="/admin/faculty" class="mt-4 inline-block text-sm text-green-600 font-medium hover:text-green-800">View Details →</a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                    <div class="flex items-center">
+                        <div class="bg-purple-100 p-3 rounded-full">
+                            <i class="fas fa-calendar-alt text-purple-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h2 class="text-lg font-semibold text-gray-700">Events</h2>
+                            <p class="text-gray-500">Manage upcoming events</p>
+                        </div>
+                    </div>
+                    <a href="/admin/events" class="mt-4 inline-block text-sm text-purple-600 font-medium hover:text-purple-800">View Details →</a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                    <div class="flex items-center">
+                        <div class="bg-yellow-100 p-3 rounded-full">
+                            <i class="fas fa-graduation-cap text-yellow-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h2 class="text-lg font-semibold text-gray-700">Academics</h2>
+                            <p class="text-gray-500">Manage academic details</p>
+                        </div>
+                    </div>
+                    <a href="/admin/academics" class="mt-4 inline-block text-sm text-yellow-600 font-medium hover:text-yellow-800">View Details →</a>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                    <div class="flex items-center">
+                        <div class="bg-red-200 p-3 rounded-full">
+                            <i class="fas fa-users text-red-600"></i>
+
+                        </div>
+                        <div class="ml-4">
+                            <h2 class="text-lg font-semibold text-gray-700">Student Detained Management</h2>
+                            <p class="text-gray-500">Manage student detainment status with ease</p>
+                        </div>
+                    </div>
+                    <a href="/admin/manageStudent" class="mt-4 inline-block text-sm text-red-500 font-medium hover:text-red-800">View Details →</a>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                    <div class="flex items-center">
+                        <div class="bg-cyan-200 p-3 rounded-full">
+                            <i class="fas fa-users text-cyan-600"></i>
+
+                        </div>
+                        <div class="ml-4">
+                            <h2 class="text-lg font-semibold text-gray-700">Student Data</h2>
+                            <p class="text-gray-500"> Upload student data with ease </p>
+                        </div>
+                    </div>
+                    <a href="/admin/student/upload" class="mt-4 inline-block text-sm text-cyan-500 font-medium hover:text-cyan-800">Upload Data →</a>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                    <div class="flex items-center">
+                        <div class="bg-teal-200 p-3 rounded-full">
+                            <i class="fas fa-users text-teal-600"></i>
+
+                        </div>
+                        <div class="ml-4">
+                            <h2 class="text-lg font-semibold text-teal-700">Placement Data</h2>
+                            <p class="text-teal-500"> Upload placement data with ease </p>
+                        </div>
+                    </div>
+                    <a href="/admin/placement/upload" class="mt-4 inline-block text-sm text-teal-500 font-medium hover:text-teal-800">Upload Data →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

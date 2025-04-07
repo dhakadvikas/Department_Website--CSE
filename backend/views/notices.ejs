@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notices</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CSS CDN -->
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <div class="container mx-auto p-8">
+        <!-- Header -->
+        <h1 class="text-3xl font-bold text-center mb-6">Notice Board</h1>
+
+        <!-- Notice Form -->
+        <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">Create a Notice</h2>
+            <form id="noticeForm" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 font-medium">Title</label>
+                    <input type="text" id="title" name="title" required class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Upload File</label>
+                    <input type="file" id="file" name="file" required class="w-full px-4 py-2 border rounded-md">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+                    Create Notice
+                </button>
+            </form>
+        </div>
+
+
+        <!-- <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">Create a Notice</h2>
+            <form action="/notice/create" method="POST" enctype="multipart/form-data" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 font-medium">Title</label>
+                    <input type="text" name="title" required class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Upload File</label>
+                    <input type="file" name="file" required class="w-full px-4 py-2 border rounded-md">
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+                    Create Notice
+                </button>
+            </form>
+        </div> -->
+
+        <!-- Notice List -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">Latest Notices</h2>
+            <ul class="divide-y divide-gray-300">
+                <% if (notices.length > 0) { %>
+                    <% notices.forEach(notice => { %>
+                        <li class="py-4 flex items-center justify-between">
+                            <div>
+                                <h3 class="text-lg font-semibold"><%= notice.title %></h3>
+                                <p class="text-sm text-gray-500">Uploaded on: <%= new Date(notice.date).toLocaleDateString() %></p>
+                                <a href="<%= notice.file %>" class="text-blue-600 underline" download>Download File</a>
+                            </div>
+                            <div class="space-x-2">
+                                
+                                
+                                <button onclick="deleteNotice('<%= notice._id %>')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">Delete</button>
+                            </div>
+                        </li>
+                    <% }); %>
+                <% } else { %>
+                    <p class="text-gray-500">No notices available.</p>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+
+</body>
+<script>
+    async function deleteNotice(noticeId) {
+        if (confirm("Are you sure you want to delete this notice?")) {
+            try {
+                const response = await fetch(`/notice/delete/${noticeId}`, {
+                    method: "DELETE",
+                });
+
+                console.log(response)
+
+                if (response.ok) {
+                    
+                    window.location.reload();
+
+                    
+                    alert("Notice deleted successfully!");
+                    
+                } else {
+                    alert("Failed to delete notice!");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Error deleting notice.");
+            }
+        }
+    }
+
+    document.getElementById("noticeForm").addEventListener("submit", async function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData();
+        formData.append("title", document.getElementById("title").value);
+        formData.append("file", document.getElementById("file").files[0]); // Get the uploaded file
+
+        try {
+            const response = await fetch("/notice/create", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert("Notice created successfully!");
+                location.reload(); // Reload the page to reflect changes
+            } else {
+                alert("Error: " + result.message);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Server error while creating notice.");
+        }
+    });
+
+</script>
+
+</html>

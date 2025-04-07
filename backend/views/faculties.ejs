@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">Faculty Management</h1>
+
+        <!-- Faculty Form -->
+        <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
+            <h2 class="text-2xl font-semibold mb-4">Add Faculty</h2>
+            <form id="facultyForm" enctype="multipart/form-data" class="space-y-4">
+                <!-- Basic Details -->
+                <div>
+                    <label class="block text-gray-700 font-medium">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Designation</label>
+                    <input type="text" id="designation" name="designation" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Post</label>
+                    <select id="post" name="post" required class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                        <option value="regular">Regular</option>
+                        <option value="non_regular">Non-Regular</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Department</label>
+                    <input type="text" id="department" name="department" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Address</label>
+                    <input type="text" id="address" name="address" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+
+                <!-- Contact Information -->
+                <h3 class="text-xl font-semibold mt-4">Contact Information</h3>
+                <div>
+                    <label class="block text-gray-700 font-medium">Website</label>
+                    <input type="url" id="website" name="contact[website]" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Email</label>
+                    <input type="email" id="email" name="contact[email]" required class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Phone</label>
+                    <input type="text" id="phone" name="contact[phone]" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Mobile</label>
+                    <input type="text" id="mobile" name="contact[mobile]" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+
+                <!-- Experience -->
+                <div>
+                    <label class="block text-gray-700 font-medium">Experience</label>
+                    <input type="text" id="experience" name="experience" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+
+                <!-- Education Qualification -->
+                <h3 class="text-xl font-semibold mt-4">Education Qualification</h3>
+                <div>
+                    <label class="block text-gray-700 font-medium">Qualification</label>
+                    <input type="text" id="qualification" name="education_qualification[0][qualification]" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Specialization</label>
+                    <input type="text" id="specialization" name="education_qualification[0][specialization]" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+
+                <!-- Memberships -->
+                <h3 class="text-xl font-semibold mt-4">Memberships</h3>
+                <div>
+                    <label class="block text-gray-700 font-medium">Memberships</label>
+                    <input type="text" id="memberships" name="memberships" placeholder="Comma-separated values" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+
+                <!-- Research Areas -->
+                <h3 class="text-xl font-semibold mt-4">Research Areas</h3>
+                <div>
+                    <label class="block text-gray-700 font-medium">Research Areas</label>
+                    <input type="text" id="research_areas" name="research_areas" placeholder="Comma-separated values" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+
+                <!-- Publications -->
+                <h3 class="text-xl font-semibold mt-4">Publications</h3>
+                <div>
+                    <label class="block text-gray-700 font-medium">Title</label>
+                    <input type="text" id="publication_title" name="publications[0][title]" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Journal</label>
+                    <input type="text" id="journal" name="publications[0][journal]" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Year</label>
+                    <input type="number" id="year" name="publications[0][year]" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Authors</label>
+                    <input type="text" id="authors" name="publications[0][authors]" placeholder="Comma-separated values" class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-300">
+                </div>
+
+                <!-- Upload Image -->
+                <div>
+                    <label class="block text-gray-700 font-medium">Upload Image</label>
+                    <input type="file" id="img" name="img" accept="image/*" required class="w-full px-4 py-2 border rounded-md">
+                </div>
+
+                <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+                    Add Faculty
+                </button>
+            </form>
+        </div>
+
+        <!-- Faculty List -->
+          <!-- Faculty List -->
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Faculty List</h2>
+        <div id="facultyList" class="space-y-4">
+            <% faculties.forEach(faculty => { %>
+                <div class="bg-white shadow-md rounded-lg p-4 flex items-center justify-between space-x-4">
+                    <img src="<%= faculty.img || 'https://via.placeholder.com/100' %>" alt="Faculty Image" class="w-20 h-20 rounded-full object-cover border ">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900"><%= faculty.name %></h3>
+                        <p class="text-gray-600"><%= faculty.designation || 'N/A' %> | <%= faculty.department || 'N/A' %></p>
+                        <p class="text-sm text-gray-500">Post: <%= faculty.post %></p>
+                        <a href="/faculty/<%= faculty._id %>" class="text-blue-500 underline">View Details</a>
+                    </div>
+                    <div class="">
+                        <button onclick="deleteFaculty('<%= faculty._id %>')" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Delete</button>
+                    </div>
+                        <!-- <button onclick="deleteFaculty('<%= faculty._id %>')" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Delete</button> -->
+                    </div>
+            <% }); %>
+        </div>
+    </div>
+
+    </div>
+
+
+    <script>
+         async function deleteFaculty(facultyId) {
+        if (confirm("Are you sure you want to delete this faculty?")) {
+            try {
+                const response = await fetch(`/faculty/delete/${facultyId}`, {
+                    method: "DELETE",
+                });
+
+                console.log(response)
+
+                if (response.ok) {
+                    
+                    window.location.reload();
+
+                    
+                    alert("Faculty deleted successfully!");
+                    
+                } else {
+                    alert("Failed to delete faculty!");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Error deleting Faculty.");
+            }
+        }
+    }
+
+
+        document.getElementById("facultyForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            
+            try {
+                const response = await fetch("/faculty/create", {
+                    method: "POST",
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    alert("Faculty member added successfully!");
+                    location.reload();
+                } else {
+                    alert("Failed to add faculty member.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Server error.");
+            }
+        });
+    </script>
+
+</body>
+</html>

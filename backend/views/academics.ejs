@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Records</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Academic Records</h2>
+        
+        <!-- Form to Add Academic Record -->
+        <form id="academicForm" class="mb-6">
+            <input type="text" id="title" placeholder="Title" class="w-full p-2 border rounded mb-2">
+            <input type="file" id="file" class="w-full p-2 border rounded mb-2">
+            <select id="status" class="w-full p-2 border rounded mb-2">
+                <option value="syllabus">Syllabus</option>
+                <option value="calender">Calendar</option>
+                <option value="general">General</option>
+            </select>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Add Record</button>
+        </form>
+
+        <!-- Academic Records List -->
+        <ul id="academicList" class="space-y-4"></ul>
+    </div>
+
+    <script>
+        document.getElementById('academicForm').addEventListener('submit', async function(event) {
+            if (!confirm('Are you sure you want to add this record?')) return;
+            event.preventDefault();
+            const title = document.getElementById('title').value;
+            const fileInput = document.getElementById('file');
+            const status = document.getElementById('status').value;
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('file', fileInput.files[0]);
+            formData.append('status', status);
+
+            const response = await fetch('/academics/create', {
+                method: 'POST',
+                body: formData
+            });
+            if (response.ok) fetchAcademics();
+        });
+
+        async function fetchAcademics() {
+            
+            const response = await fetch('/academics');
+            const data = await response.json();
+            const list = document.getElementById('academicList');
+            list.innerHTML = '';
+            data.forEach(record => {
+                const li = document.createElement('li');
+                li.className = 'p-4 bg-gray-200 rounded flex justify-between items-center';
+                li.innerHTML = `
+                    <span>${record.title} (${record.status}) - ${new Date(record.date).toLocaleDateString()}</span>
+                    <button onclick="deleteAcademic('${record._id}')" class="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
+                `;
+                list.appendChild(li);
+            });
+        }
+
+        async function deleteAcademic(id) {
+            if (!confirm('Are you sure you want to delete this record?')) return;
+            const response = await fetch(`/academics/delete/${id}`, {
+                method: 'DELETE'
+            });
+
+            if (response.ok) fetchAcademics();
+        }
+
+        fetchAcademics();
+    </script>
+</body>
+</html>
+
+<!--       
+  async function deleteNotice(noticeId) {
+        if (confirm("Are you sure you want to delete this notice?")) {
+            try {
+                const response = await fetch(`/notice/delete/${noticeId}`, {
+                    method: "DELETE",
+                });
+
+                console.log(response)
+
+                if (response.ok) {
+                    
+                    window.location.reload();
+
+                    
+                    alert("Notice deleted successfully!");
+                    
+                } else {
+                    alert("Failed to delete notice!");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Error deleting notice.");
+            }
+        }
+    }
+
+});
+ -->

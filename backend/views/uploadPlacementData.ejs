@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Placement Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    boxShadow: {
+                        'inner-lg': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .drop-active {
+            border-color: #38bdf8;
+            background-color: #e0f2fe;
+        }
+        
+        .file-input-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            background-color: #e0f2fe;
+            color: #0284c7;
+        }
+        
+        .file-input-label:hover {
+            background-color: #bae6fd;
+        }
+        
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+        
+        .icon-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(120deg, #e0f2fe 0%, #f0f9ff 100%);
+        }
+        
+        .shake-animation {
+            animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        }
+        
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-white min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-lg mx-auto">
+            <!-- Header with animation -->
+            <div class="mb-8 text-center animate__animated animate__fadeIn">
+                <h1 class="text-3xl font-bold text-primary-700">Upload Placement Data</h1>
+                <p class="text-gray-600 mt-2">Import Placement records using Excel/CSV file</p>
+            </div>
+
+            <!-- Upload Form with enhanced UI -->
+            <div class="bg-white rounded-xl shadow-lg p-8 animate__animated animate__fadeInUp">
+                <form action="/placement/upload" method="POST" enctype="multipart/form-data" id="uploadForm">
+                    <!-- File Upload with working drag and drop -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Excel File</label>
+                        <div id="drop-area" class="border-2 border-dashed border-gray-300 rounded-lg px-6 py-10 text-center transition-all duration-300 hover:border-primary-400 relative cursor-pointer" 
+                            tabindex="0">
+                            <!-- <div class="space-y-3" id="upload-prompt">
+                                <div class="mx-auto h-16 w-16 text-primary-400 icon-pulse">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                    </svg>
+                                </div>
+                                <div class="text-sm text-gray-600">
+                                    <label for="file-upload" class="file-input-label">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                                        </svg>
+                                        <span>Choose file</span>
+                                    </label>
+                                    <input id="file-upload" name="file" type="file" accept=".xlsx, .xls, .csv" class="hidden" required>
+                                    <p class="mt-1">or drag and drop your file here</p>
+                                </div>
+                                <p class="text-xs text-gray-500">Excel (.xlsx, .xls) or CSV file only</p>
+                            </div> -->
+                            <div class="space-y-3" id="upload-prompt">
+                                <div class="mx-auto h-16 w-16 text-primary-400 icon-pulse">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                    </svg>
+                                </div>
+                                <div class="text-sm text-gray-600">
+                                    <!-- Fixed label to prevent double popup -->
+                                    <span class="file-input-label bg-primary-50 text-primary-600 hover:bg-primary-100 cursor-pointer" id="file-select-button">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                                        </svg>
+                                        <span>Choose file</span>
+                                    </span>
+                                    <!-- File input separated from the label -->
+                                    <input id="file-upload" name="file" type="file" accept=".xlsx, .xls, .csv" class="hidden" required>
+                                    <p class="mt-1">or drag and drop your file here</p>
+                                </div>
+                                <p class="text-xs text-gray-500">Excel (.xlsx, .xls) or CSV file only</p>
+                            </div>
+                            <!-- File Preview (hidden initially) -->
+                            <div id="file-preview" class="hidden">
+                                <div class="flex items-center justify-center space-x-3">
+                                    <div class="p-2 bg-primary-100 rounded-full">
+                                        <svg class="h-6 w-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="text-left">
+                                        <p id="file-name" class="text-sm font-medium text-gray-900 truncate max-w-[200px]"></p>
+                                        <p id="file-size" class="text-xs text-gray-500"></p>
+                                    </div>
+                                    <button type="button" id="remove-file" class="p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100">
+                                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Upload progress (hidden initially) -->
+                            <div id="upload-progress" class="hidden mt-4">
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary-600 h-2.5 rounded-full progress-bar" style="width: 0%"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1" id="progress-text">Preparing upload...</p>
+                            </div>
+                        </div>
+                        <!-- Field validation error (hidden initially) -->
+                        <div id="file-error" class="hidden mt-2 text-sm text-red-600"></div>
+                    </div>
+
+                    <!-- Format Instructions with enhanced UI -->
+                    <div class="mb-8 bg-gradient-to-r from-primary-50 to-blue-50 p-5 rounded-lg border border-primary-100 shadow-inner-lg">
+                        <h3 class="text-sm font-medium text-primary-700 mb-3 flex items-center">
+                            <svg class="w-5 h-5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Required Format
+                        </h3>
+                        <p class="text-sm text-primary-700 mb-2">Excel file must contain these columns:</p>
+                        <div class="grid grid-cols-2 gap-2 text-xs text-primary-600">
+                            <div>
+                                <div class="font-medium mb-1">Required Fields:</div>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>enrollNo</li>
+                                    <li>stdName</li>
+                                    <li>package</li>
+                                    <li>year</li>
+                                    <li>companyName</li>
+                                    
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="font-medium mb-1">Optional Fields:</div>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>role (job position)</li>
+                                    <li>location (work location)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        //improvement 
+                        <div class="mt-3 flex items-center">
+                        </div>
+                    </div>
+
+                    <!-- Submit Button with animation -->
+                    <div class="flex items-center justify-center">
+                        <button type="submit" id="submit-btn" class="w-full bg-primary-600 text-white py-3 px-4 rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-300 font-medium flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                            Upload Data
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Upload Status with improved styling -->
+            <div class="mt-6 hidden animate__animated" id="statusMessage">
+                <div id="status-content" class="rounded-xl shadow-md p-5 border-l-4 border-green-500">
+                    <div class="flex">
+                        <div class="flex-shrink-0" id="status-icon">
+                            <svg class="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3 flex-1">
+                            <h3 class="text-sm font-medium text-green-800" id="status-title">Success!</h3>
+                            <p class="text-sm text-green-700 mt-1" id="status-message"></p>
+                            <div class="mt-3">
+                                <button type="button" id="upload-another" class="text-sm text-primary-600 hover:text-primary-800 font-medium">
+                                    Upload another file
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropArea = document.getElementById('drop-area');
+            const fileInput = document.getElementById('file-upload');
+            const uploadForm = document.getElementById('uploadForm');
+            const filePreview = document.getElementById('file-preview');
+            const fileSelectButton = document.getElementById('file-select-button');
+            
+
+            const uploadPrompt = document.getElementById('upload-prompt');
+            const fileName = document.getElementById('file-name');
+            const fileSize = document.getElementById('file-size');
+            const removeFileBtn = document.getElementById('remove-file');
+            const statusMessage = document.getElementById('statusMessage');
+            const statusContent = document.getElementById('status-content');
+            const statusIcon = document.getElementById('status-icon');
+            const statusTitle = document.getElementById('status-title');
+            const statusMsg = document.getElementById('status-message');
+            const uploadAnotherBtn = document.getElementById('upload-another');
+            const progressBar = document.querySelector('.progress-bar');
+            const uploadProgress = document.getElementById('upload-progress');
+            const progressText = document.getElementById('progress-text');
+            const submitBtn = document.getElementById('submit-btn');
+            const downloadTemplate = document.getElementById('download-template');
+            const fileError = document.getElementById('file-error');
+            
+            // Required fields for validation
+            const requiredFields = ['stdName', 'package', 'year', 'companyName'];
+            
+            // Format file size
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+            
+            // Show file error
+            function showFileError(message) {
+                fileError.textContent = message;
+                fileError.classList.remove('hidden');
+                dropArea.classList.add('shake-animation', 'border-red-400');
+                
+                // Remove animation and border after a delay
+                setTimeout(() => {
+                    dropArea.classList.remove('shake-animation', 'border-red-400');
+                }, 1000);
+            }
+            
+            // Hide file error
+            function hideFileError() {
+                fileError.classList.add('hidden');
+            }
+            
+            // Handle file selection
+            function handleFile(file) {
+                if (!file) return;
+                
+                // Check file type
+                const validTypes = [
+                    'application/vnd.ms-excel',
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    'text/csv'
+                ];
+                
+                const validExtensions = ['.xlsx', '.xls', '.csv'];
+                const fileExt = '.' + file.name.split('.').pop().toLowerCase();
+                
+                // Reset error state
+                hideFileError();
+                
+                if (!validTypes.includes(file.type) && !validExtensions.includes(fileExt)) {
+                    showFileError(`Invalid file type. Please upload an Excel or CSV file (${validExtensions.join(', ')})`);
+                    return;
+                }
+                
+                // Update UI to show selected file
+                fileName.textContent = file.name;
+                fileSize.textContent = formatFileSize(file.size);
+                uploadPrompt.classList.add('hidden');
+                filePreview.classList.remove('hidden');
+                
+                // For CSV and Excel files, additional validation can be done here
+                if (fileExt === '.csv') {
+                    validateCSVFile(file);
+                } else {
+                    // For Excel files we just accept it for now
+                    // Real validation will happen on the server
+                }
+            }
+            
+            // Validate CSV file contents
+            function validateCSVFile(file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const contents = e.target.result;
+                    const lines = contents.split('\n');
+                    
+                    if (lines.length < 2) {
+                        showFileError('The CSV file appears to be empty or invalid.');
+                        return;
+                    }
+                    
+                    // Check header row for required fields
+                    const headers = lines[0].trim().split(',');
+                    const missingFields = [];
+                    
+                    for (const field of requiredFields) {
+                        if (!headers.includes(field)) {
+                            missingFields.push(field);
+                        }
+                    }
+                    
+                    if (missingFields.length > 0) {
+                        showFileError(`Missing required fields: ${missingFields.join(', ')}`);
+                        return;
+                    }
+                };
+                
+                reader.onerror = function() {
+                    showFileError('Error reading the file. Please try again.');
+                };
+                
+                reader.readAsText(file);
+            }
+            
+            // Handle drag and drop events
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropArea.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, unhighlight, false);
+            });
+            
+            function highlight() {
+                dropArea.classList.add('drop-active');
+            }
+            
+            function unhighlight() {
+                dropArea.classList.remove('drop-active');
+            }
+            
+            // Handle file drop
+            dropArea.addEventListener('drop', handleDrop, false);
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const file = dt.files[0];
+                 // Set the file to the input element
+                try {
+                    // Modern browsers approach
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(file);
+                    fileInput.files = dataTransfer.files;
+                } catch (error) {
+                    // Fallback for older browsers
+                    console.log("Using file input click fallback");
+                    // We'll need to prompt the user to select the file manually
+                    showFileError("Your browser doesn't fully support drag and drop. Please use the file selection button.");
+                }
+
+                handleFile(file);
+            }
+
+
+
+            // Make sure the file selector button works
+            fileSelectButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                fileInput.click();
+            });
+            
+            // Handle file input change (properly fixed)
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files.length > 0) {
+                    handleFile(this.files[0]);
+                }
+            });
+            
+            // Handle file removal
+            removeFileBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent the click from bubbling to the drop area
+                fileInput.value = '';
+                uploadPrompt.classList.remove('hidden');
+                filePreview.classList.add('hidden');
+                uploadProgress.classList.add('hidden');
+                hideFileError();
+            });
+            
+            // Handle clicking on the drop area
+            dropArea.addEventListener('click', function(e) {
+                // Don't trigger file input click if we're clicking on fileSelectButton or its children
+                if (!removeFileBtn.contains(e.target) && 
+                    !filePreview.contains(e.target) && 
+                    !fileSelectButton.contains(e.target)) {
+                    fileInput.click();
+                }
+            });
+            
+            // // Handle label click
+            // document.querySelector('.file-input-label').addEventListener('click', function(e) {
+            //     e.stopPropagation(); // Prevent bubbling to the drop area
+            //     fileInput.click();
+            // });
+            
+            // Handle keyboard events for accessibility
+            dropArea.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    fileInput.click();
+                }
+            });
+            
+            // Show status message
+            function showStatus(type, title, message) {
+                statusMessage.classList.remove('hidden', 'animate__fadeIn');
+                void statusMessage.offsetWidth; // Trigger reflow
+                statusMessage.classList.add('animate__fadeIn');
+                
+                if (type === 'success') {
+                    statusContent.className = 'rounded-xl shadow-md p-5 border-l-4 border-green-500 bg-green-50';
+                    statusIcon.innerHTML = `
+                        <svg class="h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                    `;
+                    statusTitle.className = 'text-sm font-medium text-green-800';
+                } else {
+                    statusContent.className = 'rounded-xl shadow-md p-5 border-l-4 border-red-500 bg-red-50';
+                    statusIcon.innerHTML = `
+                        <svg class="h-6 w-6 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                    `;
+                    statusTitle.className = 'text-sm font-medium text-red-800';
+                }
+                
+                statusTitle.textContent = title;
+                statusMsg.textContent = message;
+                statusMsg.className = type === 'success' ? 'text-sm text-green-700 mt-1' : 'text-sm text-red-700 mt-1';
+            }
+            
+            // Handle form submission with validation
+            uploadForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                if (!fileInput.files[0]) {
+                    showFileError('No file selected. Please select a file to upload.');
+                    return;
+                }
+                
+                // Hide any previous errors
+                hideFileError();
+                
+                // Show progress UI
+                uploadProgress.classList.remove('hidden');
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-75');
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Uploading...
+                `;
+                
+                // Simulate progress
+                let progress = 0;
+                const progressInterval = setInterval(() => {
+                    progress += Math.random() * 15;
+                    if (progress > 90) {
+                        clearInterval(progressInterval);
+                        progress = 90;
+                    }
+                    progressBar.style.width = `${Math.min(progress, 100)}%`;
+                    
+                    if (progress < 30) {
+                        progressText.textContent = 'Processing file...';
+                    } else if (progress < 70) {
+                        progressText.textContent = 'Validating data...';
+                    } else {
+                        progressText.textContent = 'Almost done...';
+                    }
+                }, 500);
+                
+                const formData = new FormData(this);
+                
+                try {
+                    const response = await fetch('/placement/upload', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    clearInterval(progressInterval);
+                    
+                    let result;
+                    try {
+                        result = await response.json();
+                    } catch (parseError) {
+                        throw new Error("Failed to parse server response");
+                    }
+                    
+                    if (response.ok) {
+                        // Success response
+                        progressBar.style.width = '100%';
+                        progressText.textContent = 'Complete!';
+                        
+                        setTimeout(() => {
+                            showStatus('success', 'Upload Successful', 
+                                result.count ? `${result.count} placement records have been uploaded successfully.` : 'Data uploaded successfully.'
+                            );
+                            uploadForm.reset();
+                            uploadPrompt.classList.remove('hidden');
+                            filePreview.classList.add('hidden');
+                            uploadProgress.classList.add('hidden');
+                            
+                            submitBtn.disabled = false;
+                            submitBtn.classList.remove('opacity-75');
+                            submitBtn.innerHTML = `
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                </svg>
+                                Upload Data
+                            `;
+                        }, 500);
+                        
+                    } else {
+                        // Error response
+                        let errorMessage = result.message || 'Upload failed';
+                        
+                        // Special handling for field validation errors
+                        if (result.errors && Array.isArray(result.errors)) {
+                            errorMessage = `Format errors: ${result.errors.join(', ')}`;
+                        } else if (result.missingFields && Array.isArray(result.missingFields)) {
+                            errorMessage = `Missing required fields: ${result.missingFields.join(', ')}`;
+                        }
+                        
+                        showStatus('error', 'Upload Failed', errorMessage);
+                        uploadProgress.classList.add('hidden');
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('opacity-75');
+                        submitBtn.innerHTML = `
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                            Upload Data
+                        `;
+                    }
+                    
+                } catch (error) {
+                    clearInterval(progressInterval);
+                    showStatus('error', 'Upload Failed', error.message || 'An error occurred during upload');
+                    
+                    uploadProgress.classList.add('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-75');
+                    submitBtn.innerHTML = `
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                        </svg>
+                        Upload Data
+                    `;
+                }
+            });
+            
+            // Upload another button
+            uploadAnotherBtn.addEventListener('click', function() {
+                statusMessage.classList.add('hidden');
+                uploadForm.reset();
+                uploadPrompt.classList.remove('hidden');
+                filePreview.classList.add('hidden');
+                uploadProgress.classList.add('hidden');
+                hideFileError();
+            });
+            
+            // Download template handler
+            downloadTemplate.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Create a template CSV file with proper placement fields
+                const headers = "stdName,package,year,companyName,role,location\n";
+                const sampleData = "John Doe,12 LPA,2023,Google,Software Engineer,Bangalore\nJane Smith,15 LPA,2023,Microsoft,Frontend Developer,Hyderabad\n";
+                const csvContent = headers + sampleData;
+                
+                const blob = new Blob([csvContent], { type: 'text/csv' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'placement_data_template.csv';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            });
+        });
+    </script>
+</body>
+</html>
