@@ -1,7 +1,7 @@
 import React from "react";
 import { FaDesktop, FaServer, FaCode, FaDatabase, FaLaptopCode, FaRobot, FaShieldAlt, FaCloud } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import AboutBanner from "../../assets/AboutBanner.AVIF";
+// import AboutBanner from "../../assets/AboutBanner.AVIF";
 import DepartmentBanner from "../../assets/DepartmentBanner.jpg";
 import IOTLAB from "../../assets/IOTLAB.AVIF";
 import Library from "../../assets/library.AVIF";
@@ -57,7 +57,7 @@ const Department = () => {
             </div>
             <div className="md:w-1/2">
               <img 
-                src={AboutBanner}
+                src={DepartmentBanner}
                 alt="Computer Science Education"
                 className="rounded-lg shadow-xl w-full h-auto"
               />
