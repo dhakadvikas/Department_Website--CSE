@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import AboutBanner from "../../assets/AboutBanner.jpg";
 import DepartmentBanner from "../../assets/DepartmentBanner.jpg";
 import IOTLAB from "../../assets/IOTLAB.jpg";
-import Library from "../../assets/library.jpg";
+import Library from "../../assets/Library.jpg";
 
 import AI from "../../assets/AI.jpg";
 import TCS_logo from "../../assets/TCS_logo.svg";
