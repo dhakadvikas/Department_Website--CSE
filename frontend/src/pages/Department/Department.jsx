@@ -11,10 +11,10 @@ import TCS_logo from "../../assets/TCS_logo.svg";
 import Cognizant_logo from "../../assets/Cognizant_logo.svg.png";
 import IBM_logo from "../../assets/IBM_logo.svg.png";
 import Deloitte_logo from "../../assets/Deloitte_logo.jpg";
-import Bajaj_logo from "../../assets/Bajaj_logo.svg";
+// import Bajaj_logo from "../../assets/Bajaj_logo.svg";
 import Tejas_logo from "../../assets/Tejas_logo.svg";
-import jaro_education from "../../assets/jaro_education_Logo.png";
-import persistent_logo from "../../assets/persistent_logo.png";
+// import jaro_education from "../../assets/jaro_education_Logo.png";
+// import persistent_logo from "../../assets/persistent_logo.png";
 
 
 const Department = () => {
@@ -283,7 +283,7 @@ const Department = () => {
           
           <div className="bg-gray-50 rounded-xl p-8 shadow-inner">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[TCS_logo, Cognizant_logo, IBM_logo, Deloitte_logo, Bajaj_logo, Tejas_logo, jaro_education, persistent_logo
+              {[TCS_logo, Cognizant_logo, IBM_logo, Deloitte_logo, Tejas_logo, 
               ].map((logo, index) => (
                 <div key={index} className="bg-white p-4 rounded-lg shadow-sm flex items-center justify-center h-24">
                   <img src={logo} alt="Partner Company" className="max-h-12 max-w-full" />
