@@ -1,0 +1,7 @@
+[build]
+  publish = "public"  # Adjust this to your actual publish directory
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
