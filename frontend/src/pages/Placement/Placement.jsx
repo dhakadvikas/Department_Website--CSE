@@ -8,7 +8,7 @@ import TCS_logo from "../../assets/TCS_logo.svg";
 import Cognizant_logo from "../../assets/Cognizant_logo.svg.png";
 import IBM_logo from "../../assets/IBM_logo.svg.png";
 import Deloitte_logo from "../../assets/Deloitte_logo.jpg";
-import Bajaj_logo from "../../assets/Bajaj_logo.png";
+// import Bajaj_logo from "../../assets/Bajaj_logo.png";
 import Tejas_logo from "../../assets/Tejas_logo.svg";
 import jaro_education from "../../assets/jaro_education_Logo.png";
 import persistent_logo from "../../assets/persistent_logo.png";
@@ -55,13 +55,6 @@ const topCompanies = [
     logo: TCS_logo,
     roles: ["System Engineer", "Digital Specialist", "Full Stack Developer"],
     avgPackage: "₹7 LPA"
-  },
-  { 
-    id: 5, 
-    name: "Bajaj Finserv",
-    logo: Bajaj_logo,
-    roles: ["Software Developer", "Business Analyst", "Data Engineer"],
-    avgPackage: "₹9 LPA"
   },
   { 
     id: 6, 
