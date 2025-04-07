@@ -61,7 +61,7 @@ app.use("/uploads", express.static("uploads"));
 ConnectDB();
 
 
-app.use("/api" ,home);
+app.use("/" ,home);
 
 app.use("/events", eventRoutes);
 app.use("/profile", profile);
