@@ -4,7 +4,7 @@ import { FaSearch, FaFilter, FaArrowLeft, FaEnvelope, FaPhone, FaLinkedin,
          FaGraduationCap, FaChalkboardTeacher, FaBook, FaAward, FaMedal } from "react-icons/fa";
 import ProfessorProfile from "../../component/MoreDetails/ProfessorProfile.jsx";
 import axios from "axios";
-import eventBanner from "../../assets/eventBanner.AVIF";
+import eventBanner from "../../assets/eventBanner.jpg";
 // import { Regular, NonRegular } from '../../Data/FacultyDetails';
 
 function Faculty() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaStar, FaAward, FaLaptop, FaChalkboardTeacher } from 'react-icons/fa';
-import student_working from '../../assets/student_working.AVIF'; // Adjust the path as necessary
+import student_working from '../../assets/student_working.jpg'; // Adjust the path as necessary
 const StudentLife = () => {
   const features = [
     {

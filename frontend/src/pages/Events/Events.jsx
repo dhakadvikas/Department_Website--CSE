@@ -8,7 +8,7 @@ import {
     Handshake,
 } from 'lucide-react';
 import EventCard from '../../component/EventCard/EventCard';
-import eventBanner from '../../assets/eventBanner.AVIF'; // Adjust the path as necessary
+import eventBanner from '../../assets/eventBanner.jpg'; // Adjust the path as necessary
 
 
 const apiUrl = import.meta.env.VITE_API_URL;

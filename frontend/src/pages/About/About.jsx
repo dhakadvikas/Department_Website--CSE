@@ -8,14 +8,14 @@ import { FaGraduationCap, FaLaptopCode, FaChalkboardTeacher,
          FaFlask, FaUsers, FaGlobe, FaLinkedin, FaEnvelope,
         } from "react-icons/fa";
 import MainCs from "../../assets/mainCs.jpeg";
-import AboutBanner from"../../assets/aboutBanner.AVIF"; 
+import AboutBanner from"../../assets/AboutBanner.jpg"; 
 import TestimonialCarousel from "../../component/Testimonial/TestimonialCarousel.jsx";
-import AI from "../../assets/AI.AVIF";
-import Cyber from "../../assets/cyber.AVIF";
-import Iot from "../../assets/IOT.AVIF";
-import BigData from "../../assets/BigData.AVIF";
-import Cloud from "../../assets/cloud.AVIF";
-import Software from "../../assets/software.AVIF";
+import AI from "../../assets/AI.jpg";
+import Cyber from "../../assets/cyber.jpg";
+import Iot from "../../assets/IOT.jpg";
+import BigData from "../../assets/BigData.jpg";
+import Cloud from "../../assets/cloud.jpg";
+import Software from "../../assets/software.jpg";
 const AboutUs = () => {
 const api = import.meta.env.VITE_API_URL || '';
 

@@ -1,12 +1,12 @@
 import React from "react";
 import { FaDesktop, FaServer, FaCode, FaDatabase, FaLaptopCode, FaRobot, FaShieldAlt, FaCloud } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-// import AboutBanner from "../../assets/AboutBanner.AVIF";
+import AboutBanner from "../../assets/AboutBanner.jpg";
 import DepartmentBanner from "../../assets/DepartmentBanner.jpg";
-import IOTLAB from "../../assets/IOTLAB.AVIF";
-import Library from "../../assets/library.AVIF";
+import IOTLAB from "../../assets/IOTLAB.jpg";
+import Library from "../../assets/library.jpg";
 
-import AI from "../../assets/AI.AVIF";
+import AI from "../../assets/AI.jpg";
 import TCS_logo from "../../assets/TCS_logo.svg";
 import Cognizant_logo from "../../assets/Cognizant_logo.svg.png";
 import IBM_logo from "../../assets/IBM_logo.svg.png";
@@ -57,7 +57,7 @@ const Department = () => {
             </div>
             <div className="md:w-1/2">
               <img 
-                src={DepartmentBanner}
+                src={AboutBanner}
                 alt="Computer Science Education"
                 className="rounded-lg shadow-xl w-full h-auto"
               />

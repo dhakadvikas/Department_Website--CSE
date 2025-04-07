@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaTrophy, FaExternalLinkAlt } from 'react-icons/fa';
-import acheive1 from '../../assets/Achieve1.AVIF';
-import acheive2 from '../../assets/Achieve2.AVIF';
-import acheive3 from '../../assets/Achieve3.AVIF';
+import acheive1 from '../../assets/Achieve1.jpg';
+import acheive2 from '../../assets/Achieve2.jpg';
+import acheive3 from '../../assets/Achieve3.jpg';
 
 const StudentAchievements = () => {
   const achievements = [

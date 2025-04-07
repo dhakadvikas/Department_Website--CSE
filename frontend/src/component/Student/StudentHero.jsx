@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import graduation from '../../assets/graduation.AVIF'; // Adjust the path as necessary
+import graduation from '../../assets/graduation.jpg'; // Adjust the path as necessary
 const StudentHero = () => {
   return (
     <div className="relative bg-gradient-to-r from-indigo-900 to-blue-800 text-white py-20 overflow-hidden">

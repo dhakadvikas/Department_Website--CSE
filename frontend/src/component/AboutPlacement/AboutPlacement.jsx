@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import graduation from "../../assets/graduation.AVIF";
+import graduation from "../../assets/graduation.jpg";
 import { FaChartLine, FaHandshake, FaGraduationCap, FaBriefcase, FaIndustry, FaStar } from "react-icons/fa";
 
 const AboutPlacement = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaLaptopCode } from "react-icons/fa";
-import PSO from "../../assets/PSO.AVIF"; // Adjust the path as necessary
+import PSO from "../../assets/PSO.jpg"; // Adjust the path as necessary
 const PSOsPEOs = () => {
   return (
     <motion.section 

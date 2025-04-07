@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import vision from "../../assets/vision.AVIF"; // Assuming you have a vision image in your assets
-import mission from "../../assets/mission.AVIF"; // Assuming you have a mission image in your assets
+import vision from "../../assets/vision.jpg"; // Assuming you have a vision image in your assets
+import mission from "../../assets/mission.jpg"; // Assuming you have a mission image in your assets
 const VisionMission = () => {
   return (
     <motion.section 
