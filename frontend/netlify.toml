@@ -1,5 +1,5 @@
 [build]
-  publish = "public"  # Adjust this to your actual publish directory
+  publish = "dist"  # Adjust this to your actual publish directory
 
 [[redirects]]
   from = "/*"
