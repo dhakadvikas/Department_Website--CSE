@@ -300,7 +300,7 @@ const BentoGrid = () => {
         dates: null
     });
 
-    const apiUrl = import.meta.env.VITE_API_URL || '';
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     // Open modal handler with useCallback to prevent unnecessary re-creation
     const handleOpenNoticeModal = useCallback(() => {
@@ -326,18 +326,16 @@ const BentoGrid = () => {
         const fetchAllData = async () => {
             // Fetch notices
             try {
-                const noticeResponse = await axios.get(`${apiUrl}/notice`, { credential:true, signal });
+                const noticeResponse = await axios.get(`${apiUrl}/notice`, { signal });
                 setData(prev => ({
                     ...prev,
                     notices: noticeResponse.data.map(notice => ({
                         id: notice._id,
+                        _id: notice._id,
                         title: notice.title,
-                        date: new Date(notice.date).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        }),
-                        file: notice.file ? `${apiUrl}/${notice.file}` : null,
+                        date: notice.date || new Date().toISOString(),
+                        file: notice.file ? (notice.file.startsWith('http') ? notice.file : 
+                             `${apiUrl}${notice.file.startsWith('/') ? notice.file : `/${notice.file}`}`) : null,
                         details: notice.details
                     }))
                 }));

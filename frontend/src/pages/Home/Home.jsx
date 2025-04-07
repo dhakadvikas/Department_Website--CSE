@@ -57,7 +57,7 @@ function Home() {
         }
         
         // Fetch fresh data if no cache or cache expired
-        const response = await axios.get(`${apiUrl}/notice`, {credential: true ,signal });
+        const response = await axios.get(`${apiUrl}/notice`, { signal });
         console.log("response", response.data);
         const formattedNotices = response.data.map(notice => ({
           id: notice._id,
