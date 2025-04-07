@@ -70,7 +70,16 @@ const App = () => {
         {/* Main Content */}
         <main className="flex-grow container w-screen snap-y snap-mandatory max-w-screen mx-auto py-3">
           <Suspense fallback={<HeroSectionSkeleton />}>
+
             <Routes>
+              // default route 
+              <Route path="*" element={
+                <Suspense fallback={<PageSkeleton />}>
+                  <Home />
+                </Suspense>
+              } />
+              
+              {/* Page Routes */}
               <Route path="/" element={
                 <Suspense fallback={<PageSkeleton />}>
                   <Home />
