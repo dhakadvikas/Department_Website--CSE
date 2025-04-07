@@ -15,7 +15,7 @@ import Cyber from "../../assets/cyber.jpg";
 import Iot from "../../assets/IOT.jpg";
 import BigData from "../../assets/BigData.jpg";
 import Cloud from "../../assets/cloud.jpg";
-import Software from "../../assets/software.jpg";
+import Software from "../../assets/Software.jpg";
 const AboutUs = () => {
 const api = import.meta.env.VITE_API_URL || '';
 
