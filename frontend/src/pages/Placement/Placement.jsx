@@ -10,8 +10,7 @@ import IBM_logo from "../../assets/IBM_logo.svg.png";
 import Deloitte_logo from "../../assets/Deloitte_logo.jpg";
 // import Bajaj_logo from "../../assets/Bajaj_logo.png";
 import Tejas_logo from "../../assets/Tejas_logo.svg";
-import jaro_education from "../../assets/jaro_education_Logo.png";
-import persistent_logo from "../../assets/persistent_logo.png";
+
 
 
 // Mock data for CS placement statistics
@@ -57,26 +56,12 @@ const topCompanies = [
     avgPackage: "₹7 LPA"
   },
   { 
-    id: 6, 
+    id: 5, 
     name: "Tejas Networks",
     logo: Tejas_logo,
     roles: ["Network Engineer", "Software Developer", "System Administrator"],
     avgPackage: "₹7.5 LPA" 
    
-  },
-  { 
-    id: 7, 
-    name: "Persistent Systems",
-    logo: persistent_logo,
-    roles: ["Software Engineer", "Data Scientist", "DevOps Engineer"],
-    avgPackage: "₹10 LPA" 
-  },
-  { 
-    id: 8, 
-    name: "Jaro Education",
-    logo: jaro_education,
-    roles: ["Business Development", "Sales Executive", "Marketing Associate"],
-    avgPackage: "₹6 LPA"
   }
 ];
 

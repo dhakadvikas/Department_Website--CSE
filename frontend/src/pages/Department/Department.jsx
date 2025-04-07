@@ -5,7 +5,7 @@ import AboutBanner from "../../assets/AboutBanner.AVIF";
 import DepartmentBanner from "../../assets/DepartmentBanner.jpg";
 import IOTLAB from "../../assets/IOTLAB.AVIF";
 import Library from "../../assets/library.AVIF";
-import collaborative from "../../assets/collaborative.AVIF";
+
 import AI from "../../assets/AI.AVIF";
 import TCS_logo from "../../assets/TCS_logo.svg";
 import Cognizant_logo from "../../assets/Cognizant_logo.svg.png";
@@ -202,7 +202,7 @@ const Department = () => {
             
             <div className="bg-white rounded-xl overflow-hidden shadow-lg">
               <img 
-                src= {collaborative}
+                src= {Library}
                 alt="Collaborative Space" 
                 className="w-full h-64 object-cover"
               />
