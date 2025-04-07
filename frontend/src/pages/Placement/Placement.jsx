@@ -71,8 +71,8 @@ const industryPartners = [
   { id: 2, name: "Cognizant", logo: Cognizant_logo },
   { id: 3, name: "IBM", logo: IBM_logo },
   { id: 4, name: "Deloitte", logo: Deloitte_logo },
-  { id: 5, name: "Bajaj", logo: Bajaj_logo },
-  { id: 6, name: "Tejas Networks", logo: Tejas_logo }
+ 
+  { id: 5, name: "Tejas Networks", logo: Tejas_logo }
 ];
 
 function Placement() {
