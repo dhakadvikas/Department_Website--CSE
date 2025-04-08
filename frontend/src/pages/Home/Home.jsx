@@ -4,12 +4,10 @@ import { motion } from "framer-motion";
 import CSEGallery from "../../component/Slider/Slider.jsx";
 import { BsArrowRightCircle } from "react-icons/bs";
 import Welcome from "../../component/Welcome/Welcome";
-// const Grid = lazy(() => import("../../component/Grid/BentoGrid"));
-import Grid from "../../component/Grid/BentoGrid.jsx";
-import NoticeModal from "../../component/Notice/NoticeModal.jsx";
+const Grid = lazy(() => import("../../component/Grid/BentoGrid"));
 import axios from "axios";
 import { useState, useCallback } from "react";
-// const NoticeModal = lazy(() => import("../../component/Notice/NoticeModal"));
+const NoticeModal = lazy(() => import("../../component/Notice/NoticeModal"));
 
 
 function Home() {
@@ -52,7 +50,7 @@ function Home() {
             
             // Still show modal if notices exist
             if (parsedData.length > 0) {
-              setTimeout(() => setIsAutoNoticeModalOpen(true), 1000);
+              setTimeout(() => setIsAutoNoticeModalOpen(true), 2000);
             }
             return;
           }
@@ -90,7 +88,7 @@ function Home() {
         
         // Show modal if notices exist (delayed to improve initial page load)
         if (formattedNotices.length > 0) {
-          setTimeout(() => setIsAutoNoticeModalOpen(true), 1000);
+          setTimeout(() => setIsAutoNoticeModalOpen(true), 2000);
         }
       } catch (err) {
         if (!axios.isCancel(err)) {
@@ -214,16 +212,16 @@ function Home() {
       
      {/* Gallery Section */}
       {/* <Grid/> */}
-      {/* <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}> */}
+       <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}> 
         <Grid />
-      {/* </Suspense> */}
+       </Suspense> 
 
       {/* Infrastructure Section */}
       <Infrastructure />
 
-     {/* Notice Modal - only render when needed */}   {/* <Suspense fallback={null}> */}
+     {/* Notice Modal - only render when needed */}   
              {isAutoNoticeModalOpen && (
-            
+             <Suspense fallback={null}> 
                  <NoticeModal 
                    isOpen={isAutoNoticeModalOpen}
                    onClose={handleCloseNoticeModal}
@@ -231,9 +229,9 @@ function Home() {
                    loading={loading.notices}
                    error={error.notices}
                  />
-              
+              </Suspense> 
              )}
-       {/* </Suspense> */}
+    
     </div>
   );
 }

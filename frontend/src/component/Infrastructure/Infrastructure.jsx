@@ -1,7 +1,9 @@
 
 import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// import Carousel from "react-multi-carousel";
+// import "react-multi-carousel/lib/styles.css";
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { motion } from "framer-motion";
 import Data from "../../Data/CardData.jsx";
 import Card from "../Card/Card.jsx";
@@ -81,26 +83,27 @@ function Infrastructure() {
 
         {/* Additional Infrastructure Cards */}
         <h3 className="text-2xl font-semibold text-center mb-8">Additional Facilities</h3>
-        <div className="py-4 ">
-          <Carousel
-            responsive={responsive}
-            autoPlay
-            infinite
-            autoPlaySpeed={2500}
-            containerClass="pb-10"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            dotListClass="custom-dot-list-style"
-          >
-            {Data.map((item, index) => (
-              <motion.div 
-                key={index}
-                whileHover={{ scale: 1.03 }} 
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <Card heading={item.heading} content={item.content} icon={item.icon} />
-              </motion.div>
-            ))}
-          </Carousel>
+        <div className="py-4 max-w-4xl mx-auto">
+                          <Carousel 
+                          showThumbs={false}
+                          infiniteLoop={true}
+                          showStatus={false}
+                          autoPlay={true}
+                          interval={3000}
+                          centerMode={true}
+                          centerSlidePercentage={100}
+                          className="carousel-container" 
+                          >
+                          {Data.map((item, index) => (
+                            <motion.div 
+                              key={index}
+                              whileHover={{ scale: 1.03 }} 
+                              transition={{ type: "spring", stiffness: 300 }}
+                            >
+                              <Card heading={item.heading} content={item.content} icon={item.icon} />
+                            </motion.div>
+                          ))}
+                        </Carousel>
         </div>
       </div>
     </section>

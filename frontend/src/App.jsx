@@ -7,7 +7,7 @@ import "./index.css";
 import HeroSectionSkeleton from "./component/heroSectionSkeleton";
 
 // Configure axios for better performance
-axios.defaults.timeout = 10000;
+axios.defaults.timeout = 20000;
 axios.interceptors.request.use(config => {
   config.headers['Cache-Control'] = 'max-age=3600';
   return config;
