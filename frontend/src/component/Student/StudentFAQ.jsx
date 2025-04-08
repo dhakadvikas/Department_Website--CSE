@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
 const StudentFAQ = () => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -66,10 +67,10 @@ const StudentFAQ = () => {
             
             <div className="mt-12 text-center p-6 bg-gray-50 rounded-lg">
                 <h3 className="text-xl font-semibold mb-2">Still have questions?</h3>
-                <p className="mb-4">Contact our student support team at <a href="mailto:support@example.edu" className="text-blue-500 hover:underline">support@example.edu</a></p>
-                <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-md transition-colors">
-                    Contact Support
-                </button>
+                <p className="mb-4">Contact our student support team at <a href="mailto:satish.soni127@gmail.com" className="text-blue-500 hover:underline">support@example.edu</a></p>
+                <NavLink to="/contact" className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-md transition-colors">
+                    Contact Us
+                </NavLink> 
             </div>
         </div>
     );

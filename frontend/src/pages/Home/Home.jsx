@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import CSEGallery from "../../component/Slider/Slider.jsx";
 import { BsArrowRightCircle } from "react-icons/bs";
 import Welcome from "../../component/Welcome/Welcome";
-const Grid = lazy(() => import("../../component/Grid/BentoGrid"));
+// const Grid = lazy(() => import("../../component/Grid/BentoGrid"));
+import Grid from "../../component/Grid/BentoGrid.jsx";
+import NoticeModal from "../../component/Notice/NoticeModal.jsx";
 import axios from "axios";
 import { useState, useCallback } from "react";
-const NoticeModal = lazy(() => import("../../component/Notice/NoticeModal"));
+// const NoticeModal = lazy(() => import("../../component/Notice/NoticeModal"));
 
 
 function Home() {
@@ -212,16 +214,16 @@ function Home() {
       
      {/* Gallery Section */}
       {/* <Grid/> */}
-      <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+      {/* <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}> */}
         <Grid />
-      </Suspense>
+      {/* </Suspense> */}
 
       {/* Infrastructure Section */}
       <Infrastructure />
 
-     {/* Notice Modal - only render when needed */}
+     {/* Notice Modal - only render when needed */}   {/* <Suspense fallback={null}> */}
              {isAutoNoticeModalOpen && (
-               <Suspense fallback={null}>
+            
                  <NoticeModal 
                    isOpen={isAutoNoticeModalOpen}
                    onClose={handleCloseNoticeModal}
@@ -229,9 +231,9 @@ function Home() {
                    loading={loading.notices}
                    error={error.notices}
                  />
-               </Suspense>
+              
              )}
-      
+       {/* </Suspense> */}
     </div>
   );
 }

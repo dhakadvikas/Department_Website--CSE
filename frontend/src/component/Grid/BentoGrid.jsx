@@ -159,7 +159,7 @@ const CalendarCard = memo(({ loading, error, dates }) => (
       </ul>
     )}
     <button className="w-full mt-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-      <Link to="/student#cal" className="flex items-center justify-center gap-2">
+      <Link to="/student" className="flex items-center justify-center gap-2">
          <FiCalendar className="text-white" />
       View All Calender
       </Link>

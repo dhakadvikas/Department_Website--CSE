@@ -5,9 +5,9 @@ import StudentLife from '../../component/Student/StudentLife';
 import StudentAchievements from '../../component/Student/StudentAcheivements';
 import StudentAcademicStats from '../../component/Student/StudentAcademicStats';
 import StudentAcademicMaterials from '../../component/Student/StudentAcademicMaterials';
-// import StudentResources from '../../component/Student/StudentResources';
-// import StudentGallery from '../../component/Student/StudentGallery';
-// import StudentFAQ from '../../component/Student/StudentFAQ';
+import StudentFAQ from '../../component/Student/StudentFAQ';
+import Ragging from '../../component/Ragging/Ragging';
+
 
 
   
@@ -34,7 +34,7 @@ const Student = () => {
 
          <div className="lg:col-span-2 col-span-3 space-y-12">
             <StudentLife />
-            <div id='cal' className="mt-12">
+            <div className="mt-12">
           <StudentAcademicMaterials />
         </div>
             <StudentAchievements />
@@ -57,12 +57,12 @@ const Student = () => {
     */}
     </div>
 
-        {/* <div>
-          <StudentGallery />
-          <StudentResources />
-          <StudentFAQ />
-        </div> */}
 
+    <Ragging/>
+
+        <div className="container mx-auto px-4 py-10">
+          <StudentFAQ />
+        </div>
 
 
     </div>

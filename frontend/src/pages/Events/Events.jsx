@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import EventCard from '../../component/EventCard/EventCard';
 import eventBanner from '../../assets/eventBanner.jpg'; // Adjust the path as necessary
+import Magazine from '../../component/Magzine/Magzine';
 
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -300,6 +301,9 @@ const Events = () => {
             ))}
           </div>
         </section>
+
+
+        <Magazine/>
      
       </div>
     </div>

@@ -16,6 +16,7 @@ import Iot from "../../assets/IOT.jpg";
 import BigData from "../../assets/BigData.jpg";
 import Cloud from "../../assets/cloud.jpg";
 import Software from "../../assets/Software.jpg";
+import HodMessage from "../../component/Hod/HodMessage.jsx";
 const AboutUs = () => {
 const api = import.meta.env.VITE_API_URL || '';
 
@@ -240,6 +241,9 @@ const api = import.meta.env.VITE_API_URL || '';
               </div>
             </div>
           </motion.section>
+
+          <HodMessage/>
+
 
           {/* Vision & Mission Section with Enhanced Styling */}
 
