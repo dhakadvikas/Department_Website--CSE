@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const facultyController = require("../controlers/faculty");
-const upload = require("../config/multerConfig")
+const upload = require("../config/cloudinary.js")
 
 router.post("/create", upload.single("img"), facultyController.createFaculty);
 router.get("/", facultyController.getAllFaculty);

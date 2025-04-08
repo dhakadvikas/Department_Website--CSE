@@ -334,8 +334,7 @@ const BentoGrid = () => {
                         _id: notice._id,
                         title: notice.title,
                         date: notice.date || new Date().toISOString(),
-                        file: notice.file ? (notice.file.startsWith('http') ? notice.file : 
-                             `${apiUrl}${notice.file.startsWith('/') ? notice.file : `/${notice.file}`}`) : null,
+                        file: notice.file ? `${notice.file}` : null,
                         details: notice.details
                     }))
                 }));
@@ -358,7 +357,7 @@ const BentoGrid = () => {
                     })
                     .map(event => ({
                         id: event._id,
-                        image: `${apiUrl}/${event.file}`,
+                        image: `${event.file}`,
                         title: event.title,
                         description: event.details || 'Event details',
                         date: new Date(event.date).toLocaleDateString()
@@ -415,7 +414,7 @@ const BentoGrid = () => {
                     .map(event => ({
                         id: event._id,
                         title: event.title,
-                        file: event.file ? `${apiUrl}/${event.file}` : null,
+                        file: event.file ? `${event.file}` : null,
                         date: new Date(event.date).toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'long',

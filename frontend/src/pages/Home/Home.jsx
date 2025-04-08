@@ -67,7 +67,7 @@ function Home() {
             month: 'long',
             day: 'numeric'
           }),
-          file: notice.file ? `${apiUrl}/${notice.file}` : null,
+          file: notice.file ? `${notice.file}` : null,
           details: notice.details
         }));
         

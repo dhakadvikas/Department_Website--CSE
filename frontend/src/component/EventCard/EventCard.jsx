@@ -46,7 +46,8 @@ const EventCard = ({ event }) => {
         {isImage && (
           <div className="mb-4 h-48 overflow-hidden">
             <img 
-              src={`${apiUrl}/uploads/${fileName}`} 
+              src={`${fileName}`} 
+             
               alt={title} 
               className="w-full h-full object-cover"
               onError={(e) => {

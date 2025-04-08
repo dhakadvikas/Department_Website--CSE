@@ -24,7 +24,7 @@ function Faculty() {
 
       // Faculty details API URL
   
-      const api = import.meta.env.VITE_API_URL || '';
+      const api = import.meta.env.VITE_API_URL;
 
 
 
@@ -55,21 +55,13 @@ function Faculty() {
 
 
   
-
-
-
-
-
-
-
-  
   
   // Extract unique research areas for filtering
-  const allResearchAreas = [...new Set(
-    [...Regular, ...NonRegular]
-      .flatMap(prof => prof.research_areas)
-      .filter(area => typeof area === 'string' && area.trim() !== '')
-  )];
+  // const allResearchAreas = [...new Set(
+  //   [...Regular, ...NonRegular]
+  //     .flatMap(prof => prof.research_areas)
+  //     .filter(area => typeof area === 'string' && area.trim() !== '')
+  // )];
 
   // Filter faculty based on search term, research area, and experience
   const getFilteredFaculty = (facultyArray) => {

@@ -24,7 +24,7 @@ const StudentAcademicMaterials = () => {
         title: academic.title || 'Untitled Document',
         status: academic.status || 'general',
         date: academic.date || new Date().toISOString(),
-        file: academic.file ? `${apiUrl}/${academic.file}` : null,
+        file: academic.file ? `${academic.file}` : null,
       })));
     } catch (error) {
       console.error("Error fetching academic materials:", error);

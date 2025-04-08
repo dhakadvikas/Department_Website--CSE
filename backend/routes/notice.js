@@ -10,7 +10,7 @@ const {
 } = require("../controlers/notice");
 
 const router = express.Router();
-const upload = require("../config/multerConfig");
+const upload = require("../config/cloudinary.js");
 
 
 
