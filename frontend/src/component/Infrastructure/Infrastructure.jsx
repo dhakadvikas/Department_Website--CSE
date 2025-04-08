@@ -52,9 +52,9 @@ function Infrastructure() {
         >
           <img src={Infra} alt="CS Department Infrastructure" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-transparent flex items-center">
-            <div className="ml-10 max-w-xl text-white p-6 bg-blue-900/30 backdrop-blur-sm rounded-lg">
-              <h3 className="text-3xl font-bold mb-3">Cutting-Edge Technology</h3>
-              <p className="text-lg">
+            <div className="md:ml-10 mx-3 max-w-xl text-white p-6 bg-blue-900/30 backdrop-blur-sm rounded-lg">
+              <h3 className="md:text-3xl text-2xl font-bold mb-3">Cutting-Edge Technology</h3>
+              <p className="md:text-lg">
                 Our department is equipped with the latest technology and resources to provide students with hands-on experience in various domains of computer science and engineering.
               </p>
             </div>

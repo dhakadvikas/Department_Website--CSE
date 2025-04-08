@@ -57,11 +57,11 @@ const AboutPlacement = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
               {loading ? fallbackData.title : placementData?.title || fallbackData.title}
             </h1>
             <div className="h-1 bg-yellow-400 rounded-full w-24 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-100 max-w-3xl mx-auto">
+            <p className="md:text-xl text-gray-100 max-w-3xl mx-auto">
               {loading ? fallbackData.description : placementData?.description || fallbackData.description}
             </p>
             

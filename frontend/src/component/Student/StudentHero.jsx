@@ -20,10 +20,10 @@ const StudentHero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+            <h1 className="md:text-4xl text-3xl lg:text-5xl font-bold mb-4 leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-500">Student Life</span> at CSE Department
             </h1>
-            <p className="text-lg text-blue-100 mb-6">
+            <p className="md:text-lg text-blue-100 mb-6">
               Experience the perfect blend of academic excellence, innovation, and vibrant campus life in our Computer Science & Engineering Department.
             </p>
             
@@ -41,7 +41,7 @@ const StudentHero = () => {
               <img 
               src={graduation}
                 alt="Students collaborating" 
-                className="rounded-2xl relative shadow-lg object-cover h-[400px] w-full"
+                className="rounded-2xl relative shadow-lg object-cover md:h-[400px] w-full"
               />
             </div>
           </motion.div>

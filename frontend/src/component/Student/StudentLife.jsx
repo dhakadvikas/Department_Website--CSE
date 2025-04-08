@@ -77,7 +77,7 @@ const StudentLife = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
                 viewport={{ once: true }}
-                className="relative overflow-hidden h-[400px] rounded-xl"
+                className="relative overflow-hidden md:h-[400px] rounded-xl"
               >
                 <img 
                   src={student_working}

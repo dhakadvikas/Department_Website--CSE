@@ -11,10 +11,7 @@ import TCS_logo from "../../assets/TCS_logo.svg";
 import Cognizant_logo from "../../assets/Cognizant_logo.svg.png";
 import IBM_logo from "../../assets/IBM_logo.svg.png";
 import Deloitte_logo from "../../assets/Deloitte_logo.jpg";
-// import Bajaj_logo from "../../assets/Bajaj_logo.svg";
 import Tejas_logo from "../../assets/Tejas_logo.svg";
-// import jaro_education from "../../assets/jaro_education_Logo.png";
-// import persistent_logo from "../../assets/persistent_logo.png";
 
 
 const Department = () => {
@@ -30,8 +27,8 @@ const Department = () => {
           />
         </div>
         <div className="container mx-auto px-6 py-20 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Department of Computer Science & Engineering</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Department of Computer Science & Engineering</h1>
+          <p className="md:text-xl text-blue-100 max-w-3xl mx-auto">
             Innovating tomorrow's solutions through cutting-edge education, research, and technology
           </p>
         </div>

@@ -125,9 +125,9 @@ function Faculty() {
               />
             </div>
             <div className="container mx-auto px-6 py-24 relative z-10">
-              <h1 className="text-5xl font-bold mb-6">Meet Our Faculty</h1>
+              <h1 className="md:text-5xl text-3xl font-bold mb-6">Meet Our Faculty</h1>
               <div className="w-24 h-1 bg-blue-400 mx-auto mb-6"></div>
-              <p className="text-xl mx-auto max-w-3xl">
+              <p className="md:text-xl mx-auto max-w-3xl">
                 Our distinguished faculty members are leaders in computer science and engineering research, 
                 bringing expertise from both academia and industry to provide an exceptional educational experience.
               </p>

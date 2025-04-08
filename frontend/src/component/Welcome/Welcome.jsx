@@ -1,5 +1,6 @@
 
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import backgroundImage from "../../assets/mainCs.jpeg";
 import { FaChevronDown } from "react-icons/fa";
@@ -64,7 +65,7 @@ function Welcome() {
         >
           <motion.h1 
             variants={fadeIn}
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-6"
+            className="text-4xl md:text-7xl font-bold tracking-tight mb-6"
           >
             <motion.span variants={highlightText} className="inline-block text-blue-400 filter drop-shadow-lg">Innovate.</motion.span>{" "}
             <motion.span variants={highlightText} className="inline-block text-cyan-300 filter drop-shadow-lg">Create.</motion.span>{" "}
@@ -73,14 +74,14 @@ function Welcome() {
           
           <motion.h2 
             variants={fadeIn}
-            className="text-3xl md:text-4xl font-semibold text-white/90 mb-4"
+            className="text-xl md:text-4xl font-semibold text-white/90 mb-4"
           >
             Department of Computer Science & Engineering
           </motion.h2>
           
           <motion.p 
             variants={fadeIn}
-            className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed"
+            className="md:text-xl text-sm text-gray-200 max-w-3xl mx-auto leading-relaxed"
           >
             Empowering future innovators through cutting-edge education, groundbreaking research, 
             and technological excellence since 1987
@@ -90,9 +91,12 @@ function Welcome() {
             variants={fadeIn}
             className="mt-8"
           >
-            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-300">
+            <NavLink 
+              to={"/about"}
+            className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-300">
+             
               Explore Programs
-            </button>
+            </NavLink>
           </motion.div>
         </motion.div>
 

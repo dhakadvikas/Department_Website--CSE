@@ -192,8 +192,8 @@ const api = import.meta.env.VITE_API_URL || '';
             variants={fadeIn}
             className="max-w-3xl"
           >
-            <h1 className="text-5xl font-bold mb-6">Department of Computer Science & Engineering</h1>
-            <p className="text-xl opacity-90 leading-relaxed">
+            <h1 className="md:text-5xl text-3xl font-bold mb-6">Department of Computer Science & Engineering</h1>
+            <p className="md:text-xl text-md opacity-90 leading-relaxed">
               Empowering future innovators through cutting-edge education, groundbreaking research, 
               and technological excellence since 1987
             </p>

@@ -20,7 +20,7 @@ const PSOsPEOs = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-indigo-900/60 rounded-xl flex items-center justify-center">
           <div>
-            <h2 className="text-3xl font-bold text-white">Program Outcomes & Objectives</h2>
+            <h2 className="md:text-3xl text-2xl font-bold text-white">Program Outcomes & Objectives</h2>
             <p className="text-white/90 mt-2">Defining the educational goals and expected outcomes for our students</p>
           </div>
         </div>

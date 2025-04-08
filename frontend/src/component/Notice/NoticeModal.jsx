@@ -5,8 +5,8 @@ import { FiDownload, FiX } from 'react-icons/fi';
 // Extracted notice item component for better code organization
 const NoticeItem = memo(({ notice }) => (
   <div className="bg-indigo-50 rounded-xl p-5 border-l-4 border-indigo-500">
-    <h3 className="text-xl font-bold text-indigo-900 mb-2">{notice.title}</h3>
-    <p className="text-gray-700 mb-3">{notice.details || "Please check the attached document for details."}</p>
+    <h3 className="md:text-xl  font-bold text-indigo-900 mb-2">{notice.title}</h3>
+    <p className="text-gray-700 lg:block hidden mb-3">{notice.details || "Please check the attached document for details."}</p>
     <div className="flex justify-between items-center">
       <span className="text-sm text-gray-500">{notice.date}</span>
       {notice.file && (
@@ -17,8 +17,11 @@ const NoticeItem = memo(({ notice }) => (
           className="inline-flex items-center px-3 py-2 text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700"
           aria-label={`View document for ${notice.title}`}
         >
-          <FiDownload className="mr-2" />
-          View Document
+          <FiDownload className="md:mr-2 " />
+          <span className="hidden md:inline-block">
+            View Document
+          </span>
+          
         </a>
       )}
     </div>
