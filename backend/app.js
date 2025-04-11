@@ -7,12 +7,14 @@ const userModel = require("./models/userModel");
 const multer = require("multer");
 
 
+
 const profile =  require("./routes/profile");
 const bodyParser = require("body-parser");
 const placement  = require("./routes/placementData");
 const faculty = require("./routes/faculty");
 const Notice = require('./models/notice');
 const Event = require('./models/event');
+
 
 // const TrRecord = require('./models/trSheet');
 const Academic = require('./models/academic');
@@ -72,6 +74,7 @@ app.use("/trData", trData);
 app.use("/student", student);
 app.use("/academics", academicRoutes);
 app.use("/feedback", feedbackRoutes);
+
 
 
 

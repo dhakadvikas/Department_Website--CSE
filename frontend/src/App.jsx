@@ -5,6 +5,7 @@ import axios from "axios";
 import "./App.css";
 import "./index.css";
 import HeroSectionSkeleton from "./component/heroSectionSkeleton";
+import Chatbot from "./component/Chatbot/chatbot";
 
 // Configure axios for better performance
 axios.defaults.timeout = 20000;
@@ -128,6 +129,8 @@ const App = () => {
             </Suspense>
           </Suspense>
         </main>
+        <Chatbot /> {/* Chatbot component  */}
+
       </BrowserRouter>
     </div>
   );
