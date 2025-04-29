@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {createData, getData} = require("../controlers/placementData");
 const uploadPlacementData = require("../controlers/placementData");
-const upload = require("../config/cloudinary.js");
+const upload = require("../config/multerConfig")
 
 
 
