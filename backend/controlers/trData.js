@@ -1,9 +1,10 @@
 const TrSheet = require('../models/trSheet');
+const axios = require('axios');
 
 // Get all students
 const getAllStudents = async (req, res) => {
     try {
-        const students = await TrSheet.find();
+        const students = await TrSheet.find().sort('enrollNo');
         res.json(students);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -105,19 +106,22 @@ const uploadExcelFile = async (req, res) => {
             return res.status(400).json({ message: "Please upload a file" });
         }
 
-        const workbook = XLSX.readFile(file.path);
+        // const workbook = XLSX.readFile(file.path);
+        const response = await axios.get(file.path, { responseType: 'arraybuffer' });
+        const workbook = XLSX.read(response.data, { type: 'buffer' });
+        
         const sheetName = workbook.SheetNames[0];
         const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
         const students = data.map(student => ({
-            sem_1: student.sem_1 || 0,
-            sem_2: student.sem_2 || 0,
-            sem_3: student.sem_3 || 0,
-            sem_4: student.sem_4 || 0,
-            sem_5: student.sem_5 || 0,
-            sem_6: student.sem_6 || 0,
-            sem_7: student.sem_7 || 0,
-            sem_8: student.sem_8 || 0,
+            sem_1: student.sem_1 ? student.sem_1: 0,
+            sem_2: student.sem_2 ? student.sem_2: 0,
+            sem_3: student.sem_3 ? student.sem_3: 0,
+            sem_4: student.sem_4 ? student.sem_4: 0,
+            sem_5: student.sem_5 ? student.sem_5: 0,
+            sem_6: student.sem_6 ? student.sem_6: 0,
+            sem_7: student.sem_7 ? student.sem_7: 0,
+            sem_8: student.sem_8 ? student.sem_8: 0,
             enrollNo: student.enrollNo,
             name: student.name,
             year: student.year,

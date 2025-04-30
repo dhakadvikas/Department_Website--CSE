@@ -6,15 +6,12 @@ const jwt = require("jsonwebtoken");
 const userModel = require("./models/userModel");
 const multer = require("multer");
 
-
-
 const profile =  require("./routes/profile");
 const bodyParser = require("body-parser");
 const placement  = require("./routes/placementData");
 const faculty = require("./routes/faculty");
 const Notice = require('./models/notice');
 const Event = require('./models/event');
-
 
 // const TrRecord = require('./models/trSheet');
 const Academic = require('./models/academic');
@@ -30,9 +27,6 @@ const feedbackRoutes = require("./routes/feedbackRoutes");
 const academicRoutes = require("./routes/academicRoutes");
 const path = require('path');
 require("dotenv").config();
-
-
-
 
 
 // Set EJS as the templating engine
@@ -52,10 +46,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const cors = require("cors");
+// const corsOptions = {
+//   origin: ['https://uitrgpv.netlify.app', 'http://localhost:5174'],
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+//   allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token'],
+//   credentials: true, // Allow cookies to be sent with requests
+//   optionsSuccessStatus: 200 // For legacy browser support
+// };
+
+app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+
 app.use("/uploads", express.static("uploads"));
 
 
@@ -224,3 +227,4 @@ app.get('/admin/placement/upload', isLogIn, (req, res) => {
 app.listen(process.env.PORT || 5000, ()=>{
     console.log("connected to server ");  
 })
+

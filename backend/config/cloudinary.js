@@ -20,6 +20,7 @@ const storage = new CloudinaryStorage({
   
       if (['jpg', 'jpeg', 'png', 'webp', 'svg'].includes(ext)) resourceType = 'image';
       else if (['mp4', 'mov', 'avi'].includes(ext)) resourceType = 'video';
+      else if (['xlsx', 'xls', 'csv'].includes(ext)) resourceType = 'raw'; // Explicitly handle Excel files
   
       return {
         folder: 'uploads',

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const trController = require('../controlers/trData');
-const upload = require('../config/cloudinary.js');
+const upload = require('../config/cloudinary');
 
 // CRUD operations
 router.get('/', trController.getAllStudents);

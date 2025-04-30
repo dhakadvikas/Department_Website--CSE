@@ -1,4 +1,6 @@
 const placementData  = require("../models/placementData");
+const axios = require('axios');
+const XLSX = require('xlsx');
 
 
 const createData = async (req , res) => {
@@ -37,33 +39,34 @@ const createData = async (req , res) => {
    }
 
    //upload placement data using multer in excel format .
-   const fs = require("fs");
-   const XLSX = require("xlsx");
    const uploadPlacementData = async (req, res) => {
       try {
-         const filePath = req.file.path;
-         const workbook = XLSX.readFile(filePath);
+         const file = req.file;
+         if (!file) {
+            return res.status(400).json({ message: "Please upload a file" });
+         }
+
+         // Fetch the file from Cloudinary
+         const response = await axios.get(file.path, { responseType: 'arraybuffer' });
+         const workbook = XLSX.read(response.data, { type: 'buffer' });
+
          const sheetName = workbook.SheetNames[0];
-         const sheet = workbook.Sheets[sheetName];
-         const data = XLSX.utils.sheet_to_json(sheet);
-         
-         // Save data to MongoDB
-         if(await placementData.find({ enrollNo: data[0].enrollNo })){
-            data.forEach(async (student) => {
-                await placementData.findOneAndUpdate(
-                    { enrollNo: student.enrollNo },
-                   {...student, student},
-                    { upsert: true, new: true }
-                );
-            })
-        }
-        else{
-         await placementData.insertMany(data);
-        }
+         const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+
          
 
-         // Delete the uploaded file
-         fs.unlinkSync(filePath);
+         // Save data to MongoDB
+         if (await placementData.find({ enrollNo: data[0].enrollNo })) {
+            data.forEach(async (student) => {
+               await placementData.findOneAndUpdate(
+                  { enrollNo: student.enrollNo },
+                  { ...student, student },
+                  { upsert: true, new: true }
+               );
+            });
+         } else {
+            await placementData.insertMany(data);
+         }
 
          res.status(200).json({ message: 'Data uploaded successfully' });
       } catch (error) {

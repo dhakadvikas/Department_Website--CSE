@@ -323,7 +323,7 @@
                 totalCountEl.textContent = studentData.length;
                 
                 // Filter by year if selected
-                const selectedYear = yearFilter.value;
+                const selectedYear = yearFilter.value || "2021";
                 pdfDownloadBtn.href = `/trData/students/pdf/${selectedYear}`;
                 const filteredStudents = selectedYear ? 
                     studentData.filter(student => student.year.toString() === selectedYear) : 
