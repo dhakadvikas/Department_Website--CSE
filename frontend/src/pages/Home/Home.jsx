@@ -168,8 +168,7 @@ function Home() {
       {/* Gallery Section */}
       <CSEGallery/>
 
-
-
+      
        {/* 🔹 Research Areas Section */}
       <section className="pt-20 bg-white">
         <div className="container mx-auto px-4">
@@ -212,25 +211,25 @@ function Home() {
       
      {/* Gallery Section */}
       {/* <Grid/> */}
-       <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}> 
+      <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}> 
         <Grid />
-       </Suspense> 
+      </Suspense> 
 
       {/* Infrastructure Section */}
       <Infrastructure />
 
      {/* Notice Modal - only render when needed */}   
-             {isAutoNoticeModalOpen && (
-             <Suspense fallback={null}> 
-                 <NoticeModal 
-                   isOpen={isAutoNoticeModalOpen}
-                   onClose={handleCloseNoticeModal}
-                   notices={latestNotices}
-                   loading={loading.notices}
-                   error={error.notices}
-                 />
+            {isAutoNoticeModalOpen && (
+            <Suspense fallback={null}> 
+                <NoticeModal 
+                  isOpen={isAutoNoticeModalOpen}
+                  onClose={handleCloseNoticeModal}
+                  notices={latestNotices}
+                  loading={loading.notices}
+                  error={error.notices}
+                />
               </Suspense> 
-             )}
+            )}
     
     </div>
   );

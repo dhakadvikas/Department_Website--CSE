@@ -61,7 +61,6 @@ const topCompanies = [
     logo: Tejas_logo,
     roles: ["Network Engineer", "Software Developer", "System Administrator"],
     avgPackage: "₹7.5 LPA" 
-   
   }
 ];
 

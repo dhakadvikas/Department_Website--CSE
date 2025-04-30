@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { GoogleGenAI } from "@google/genai";
-import { FiSend, FiX, FiMessageSquare } from "react-icons/fi";
+import { FiSend, FiX } from "react-icons/fi";
 import { RiRobot2Line } from "react-icons/ri";
 
 const Chatbot = () => {
