@@ -227,4 +227,3 @@ app.get('/admin/placement/upload', isLogIn, (req, res) => {
 app.listen(process.env.PORT || 5000, ()=>{
     console.log("connected to server ");  
 })
-
