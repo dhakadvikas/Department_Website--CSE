@@ -42,12 +42,12 @@ function Welcome() {
         {/* Background Image */}
         <img 
           src={backgroundImage} 
-          alt="" 
+          alt="CSE Department Background" 
           loading="eager"
-         fetchPriority="high"
-         width="1200"
-         height="600"
-         decoding="async"
+          fetchpriority="high"
+          width="1200"
+          height="600"
+          decoding="async"
           className="w-full h-full object-cover object-center"
         />
         {/* Gradient Overlay */}

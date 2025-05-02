@@ -7,8 +7,9 @@ import "./index.css";
 import HeroSectionSkeleton from "./component/heroSectionSkeleton";
 import Chatbot from "./component/Chatbot/chatbot";
 
+
 // Configure axios for better performance
-axios.defaults.timeout = 5000;
+axios.defaults.timeout = 10000;
 axios.interceptors.request.use(config => {
   config.headers['Cache-Control'] = 'max-age=3600';
   return config;

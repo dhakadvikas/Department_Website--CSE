@@ -250,7 +250,7 @@ function CSEGallery() {
        
       </div>
 
-      <style jsx>{`
+      <style jsx="true">{`
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }
@@ -258,7 +258,8 @@ function CSEGallery() {
           -ms-overflow-style: none;
           scrollbar-width: none;
         }
-      `}</style>
+      `}
+      </style>
     </section>
   );
 }
