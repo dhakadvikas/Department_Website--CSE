@@ -108,24 +108,6 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">Excel File</label>
                         <div id="drop-area" class="border-2 border-dashed border-gray-300 rounded-lg px-6 py-10 text-center transition-all duration-300 hover:border-primary-400 relative cursor-pointer" 
                             tabindex="0">
-                            <!-- <div class="space-y-3" id="upload-prompt">
-                                <div class="mx-auto h-16 w-16 text-primary-400 icon-pulse">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                    </svg>
-                                </div>
-                                <div class="text-sm text-gray-600">
-                                    <label for="file-upload" class="file-input-label">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
-                                        </svg>
-                                        <span>Choose file</span>
-                                    </label>
-                                    <input id="file-upload" name="file" type="file" accept=".xlsx, .xls, .csv" class="hidden" required>
-                                    <p class="mt-1">or drag and drop your file here</p>
-                                </div>
-                                <p class="text-xs text-gray-500">Excel (.xlsx, .xls) or CSV file only</p>
-                            </div> -->
                             <div class="space-y-3" id="upload-prompt">
                                 <div class="mx-auto h-16 w-16 text-primary-400 icon-pulse">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -191,7 +173,7 @@
                             <div>
                                 <div class="font-medium mb-1">Required Fields:</div>
                                 <ul class="list-disc pl-5 space-y-1">
-                                    <li>Enrollment No.</li>
+                                    <li>enrollNo</li>
                                     <li>name</li>
                                     <li>year</li>
                                 </ul>
@@ -282,7 +264,7 @@
             const fileError = document.getElementById('file-error');
             
             // Required fields for validation
-            const requiredFields = ['stdName', 'package', 'year', 'companyName'];
+            const requiredFields = ['enrollNo', 'name', 'year'];
             
             // Format file size
             function formatFileSize(bytes) {
@@ -646,8 +628,8 @@
                 e.preventDefault();
                 
                 // Create a template CSV file with proper placement fields
-                const headers = "stdName,package,year,companyName,role,location\n";
-                const sampleData = "John Doe,12 LPA,2023,Google,Software Engineer,Bangalore\nJane Smith,15 LPA,2023,Microsoft,Frontend Developer,Hyderabad\n";
+                const headers = "name,enrollNo,year,sem_1,sem_2,sem_3,sem_4,sem_5,sem_6,sem_7,sem_8\n";
+                const sampleData = "John Doe,12345,2023,80,85,90,75,88,92,80,78,Pass\nJane Smith,67890,2023,70,75,80,65,70,72,68,74\n";
                 const csvContent = headers + sampleData;
                 
                 const blob = new Blob([csvContent], { type: 'text/csv' });
