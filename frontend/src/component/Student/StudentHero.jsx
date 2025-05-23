@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import graduation from '../../assets/graduation.jpg'; // Adjust the path as necessary
 const StudentHero = () => {
   return (
-    <div className="relative bg-gradient-to-r from-indigo-900 to-blue-800 text-white py-20 overflow-hidden">
+    <div className="relative bg-gradient-to-t from-gray-900 via-indigo-800 to-gray-800 text-white py-20 overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       
@@ -37,7 +37,7 @@ const StudentHero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 to-indigo-500 rounded-3xl blur-md opacity-30"></div>
+              {/* <div className="absolute -inset-1 bg-gradient-to-r from-amber-500 to-indigo-500 rounded-3xl blur-md opacity-30"></div> */}
               <img 
               src={graduation}
                 alt="Students collaborating" 

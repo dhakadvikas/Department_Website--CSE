@@ -130,7 +130,7 @@ function CSEGallery() {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b from-slate-800 to-">
+    <section className="py-16 bg-gradient-to-b from-slate-800/80 to-">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

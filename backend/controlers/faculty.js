@@ -1,8 +1,15 @@
 const Faculty = require("../models/faculty");
 const fs = require("fs");
 const path = require("path");
+const { post } = require("../routes/faculty");
 
 // Create a new faculty member
+
+
+
+
+
+
 exports.createFaculty = async (req, res) => {
     try {
         const newFaculty = new Faculty(req.body);

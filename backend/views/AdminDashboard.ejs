@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Admin Dashboard</title>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gray-50 min-h-screen box-content">
     <!-- Navbar -->
     <nav class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,13 +31,13 @@
 
     <div class="flex">
         <!-- Sidebar -->
-        <div class="w-64 bg-white shadow-lg h-screen">
+        <div class="w-40 lg:w-64 bg-white shadow-lg h-screen">
             <div class="pt-6 pb-4">
-                <div class="px-4">
+                <div class="px-1 lg:px-4">
                     <h2 class="text-xl font-semibold text-gray-800">Admin Panel</h2>
                 </div>
                 <nav class="mt-6">
-                    <div class="px-4 space-y-1">
+                    <div class="px-1 lg:px-4 space-y-1">
                         <a href="/admin/notice" class="group flex items-center px-4 py-3 text-gray-700 rounded-md hover:bg-blue-50 hover:text-blue-700 transition">
                             <i class="fas fa-bell mr-3 text-gray-500 group-hover:text-blue-600"></i>
                             <span class="font-medium">Notices</span>
@@ -74,7 +74,7 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 p-8">
+        <div class="flex-1 p-4 lg:p-8">
             <div class="mb-8">
                 <h1 class="text-2xl font-bold text-gray-800">Welcome, Admin!</h1>
                 <p class="text-gray-600 mt-1">Here's what's happening today</p>
@@ -82,7 +82,7 @@
 
             <!-- Dashboard Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                <div class="bg-white rounded-lg shadow p-3 lg:p-6 hover:shadow-lg transition">
                     <div class="flex items-center">
                         <div class="bg-blue-100 p-3 rounded-full">
                             <i class="fas fa-bell text-blue-600"></i>

@@ -274,7 +274,13 @@ const Events = () => {
           </section>
         )}
         
-           {/* Why Attend Section */}
+        
+
+        {/* Magazine Section */}
+        <Magazine/>
+
+
+        {/* Why Attend Section */}
         <section className="mb-16">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900">Why Attend CSE Events?</h2>
@@ -301,10 +307,6 @@ const Events = () => {
             ))}
           </div>
         </section>
-
-
-        <Magazine/>
-     
       </div>
     </div>
   );

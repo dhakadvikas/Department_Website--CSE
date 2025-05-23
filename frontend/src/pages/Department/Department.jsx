@@ -18,8 +18,9 @@ const Department = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-indigo-800 to-purple-900">
-        <div className="absolute inset-0 opacity-20">
+      <div className="relative overflow-hidden bg-gradient-to-t from-gray-900 via-gray-700 to-gray-900">
+        <div className="absolute inset-0 opacity-20 ">
+        
           <img 
             src= {DepartmentBanner}
             alt="Code background" 

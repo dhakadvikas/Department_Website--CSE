@@ -51,7 +51,7 @@ function Welcome() {
           className="w-full h-full object-cover object-center"
         />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-blue-900/70 to-indigo-900/80 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-slate-900/20 to-slate-900/60 backdrop-blur-[1px]"></div>
       </div>
 
       {/* Hero Content Container */}
@@ -63,7 +63,8 @@ function Welcome() {
           variants={staggeredFadeIn}
           className="text-center mb-16"
         >
-          <motion.h1 
+         
+           <motion.h1 
             variants={fadeIn}
             className="text-4xl md:text-7xl font-bold tracking-tight mb-6"
           >
@@ -71,7 +72,6 @@ function Welcome() {
             <motion.span variants={highlightText} className="inline-block text-cyan-300 filter drop-shadow-lg">Create.</motion.span>{" "}
             <motion.span variants={highlightText} className="inline-block text-indigo-300 filter drop-shadow-lg">Transform.</motion.span>
           </motion.h1>
-          
           <motion.h2 
             variants={fadeIn}
             className="text-xl md:text-4xl font-semibold text-white/90 mb-4"

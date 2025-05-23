@@ -5,6 +5,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("./models/userModel");
 const multer = require("multer");
+const aculty = require("./models/faculty");
+const db = require("./config/database");
 
 const profile =  require("./routes/profile");
 const bodyParser = require("body-parser");
@@ -225,5 +227,6 @@ app.get('/admin/placement/upload', isLogIn, (req, res) => {
 
 
 app.listen(process.env.PORT || 5000, ()=>{
-    console.log("connected to server ");  
+    console.log("connected to server "); 
+    
 })

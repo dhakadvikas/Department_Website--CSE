@@ -123,7 +123,7 @@ function Home() {
 
 
 {/* 🔹 Programs Section */}
-       <section className="py-20 bg-slate-800 text-white">
+       <section className="py-20 bg-slate-800/80 text-white">
          <div className="container mx-auto px-4">
           <motion.div 
             {...fadeIn}

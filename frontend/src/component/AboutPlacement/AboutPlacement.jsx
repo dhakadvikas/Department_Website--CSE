@@ -45,9 +45,9 @@ const AboutPlacement = () => {
           <img 
             src={graduation}
             alt="Students in placement interview" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-indigo-900/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-700 to-gray-900 opacity-70"></div>
         </div>
         
         <div className="container mx-auto px-6 py-20 relative z-10">

@@ -116,7 +116,7 @@ function Faculty() {
           className="min-h-screen bg-white"
         >
           {/* Hero Section */}
-          <div className="relative bg-gradient-to-r from-blue-900 to-indigo-900 text-white">
+          <div className="relative bg-gradient-to-t from-gray-900 via-gray-700 to-gray-900 text-white">
             <div className="absolute inset-0 opacity-20">
               <img 
                 src={eventBanner}
@@ -323,11 +323,11 @@ const EnhancedFacultyCard = ({ faculty, setFaculty, setFacultyData }) => {
       className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100"
     >
       {/* Faculty Image with Gradient Overlay */}
-      <div className="relative h-56 overflow-hidden">
+      <div className="relative h-70 overflow-hidden">
         <img 
           src={faculty.img || defaultImage}
           alt={faculty.name}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          className="w-full h-full transition-transform duration-500 hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
         <div className="absolute bottom-0 left-0 p-4 text-white">
