@@ -18,7 +18,7 @@ const HodMessage = () => {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:shadow-2xl transition-all duration-300">
           <div className="md:flex">
             {/* Profile Section */}
-            <div className="md:w-1/3 bg-gradient-to-br from-blue-600 to-indigo-800 p-6 md:p-8 flex flex-col items-center justify-center text-center">
+            <div className="md:w-1/3 bg-gradient-to-bl from-blue-500 via-blue-700 to-blue-500 p-6 md:p-8 flex flex-col items-center justify-center text-center">
               <div className="mb-6 relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full transform scale-110 blur-lg opacity-70"></div>
                 <img
@@ -32,7 +32,7 @@ const HodMessage = () => {
               <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-white text-sm w-full">
                 <p className="font-medium mb-2">Ph.D, Computer Science</p>
                 <p>20+ years of academic experience</p>
-                <p className="mt-2">Expert in Machine Learning & AI</p>
+                <p className="mt-2">Expert in IoT & ML</p>
               </div>
               {/* <div className="mt-6 flex space-x-3">
                 <a href="#" className="bg-white text-blue-600 hover:bg-blue-50 p-2 rounded-full transition-colors duration-300">

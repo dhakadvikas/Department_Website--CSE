@@ -32,7 +32,7 @@ function Nav() {
     { name: "Student", path: "/student" },
     { name: "Faculty", path: "/faculty" },
     { name: "Placement", path: "/placement" },
-    { name: "Events", path: "/event" },
+    { name: "Events & Magazines", path: "/event" },
     { name: "Contact Us", path: "/contact" },
   ];
 

@@ -32,19 +32,20 @@ const Student = () => {
 
           {/* Main Content - 2/3 width on desktop */}
 
-         <div className="lg:col-span-2 col-span-3 space-y-12">
-            <StudentLife />
-            <div className="mt-12">
-          <StudentAcademicMaterials />
-        </div>
-            <StudentAchievements />
+            <div className="lg:col-span-2 col-span-3 space-y-12">
+                <StudentLife />
+                <div className="mt-12">
+              <StudentAcademicMaterials />
+            </div>
+           
+            
            
           </div> 
 
 
           
         </div>
- {/* <StudentGallery /> */}
+ {/* <StudentGallery /> */}<StudentAchievements />
 
       <div className="lg:col-span-3 space-y-12 mt-10">
           <StudentAcademicStats />

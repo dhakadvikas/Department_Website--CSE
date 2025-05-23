@@ -43,12 +43,10 @@ const StudentAchievements = () => {
           <span className="w-10 h-1 bg-amber-500 rounded-full"></span>
           Student Achievements
         </h2>
-        <a href="#" className="text-indigo-600 hover:text-indigo-800 text-sm font-medium flex items-center gap-1">
-          View all achievements <FaExternalLinkAlt className="text-xs" />
-        </a>
+       
       </div>
       
-      <div className="space-y-6 flex justify-evenly flex-wrap">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {achievements.map((achievement, index) => (
           <motion.div 
             key={index}
@@ -56,13 +54,13 @@ const StudentAchievements = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="bg-white  rounded-xl shadow-md  overflow-hidden"
+            className="bg-white border-3 border-gray-200  rounded-xl shadow-md  overflow-hidden"
           >
             <div className="md:flex">
               <div className="md:w-1/3 relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/20 to-indigo-900/40 md:bg-gradient-to-b"></div>
                 <img
-                  className="h-56 w-full object-cover md:h-full"
+                  className="h-56 w-full object-cover md:h-full md:w-56 rounded-t-xl md:rounded-l-xl"
                   src={achievement.image}
                   alt={achievement.title}
                 />
@@ -74,13 +72,7 @@ const StudentAchievements = () => {
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{achievement.title}</h3>
                 <p className="text-gray-600 mb-4">{achievement.description}</p>
-                <a 
-                  href={achievement.link} 
-                  className="inline-flex items-center px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-lg transition-colors text-sm font-medium"
-                >
-                  Read more
-                  <FaExternalLinkAlt className="ml-2 text-xs" />
-                </a>
+                
               </div>
             </div>
           </motion.div>
