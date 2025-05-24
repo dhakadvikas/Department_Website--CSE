@@ -176,34 +176,34 @@ const api = import.meta.env.VITE_API_URL || '';
   return (
     <>
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-900 to-indigo-800 text-white">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          <img 
-            src={AboutBanner} 
-            alt="Computer Science Department" 
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <div className="relative bg-gradient-to-r from-blue-900 to-indigo-800 text-white">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+            <img 
+              src={AboutBanner} 
+              alt="Computer Science Department" 
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-        <div className="container mx-auto px-6 py-24 relative z-10">
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            className="max-w-3xl"
-          >
-            <h1 className="md:text-5xl text-3xl font-bold mb-6">Department of Computer Science & Engineering</h1>
-            <p className="md:text-xl text-md opacity-90 leading-relaxed">
-              Empowering future innovators through cutting-edge education, groundbreaking research, 
-              and technological excellence since 1987
-            </p>
-          </motion.div>
+          <div className="container mx-auto px-6 py-24 relative z-10">
+            <motion.div 
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              className="max-w-3xl"
+            >
+              <h1 className="md:text-5xl text-3xl font-bold mb-6">Department of Computer Science & Engineering</h1>
+              <p className="md:text-xl text-md opacity-90 leading-relaxed">
+                Empowering future innovators through cutting-edge education, groundbreaking research, 
+                and technological excellence since 1987
+              </p>
+            </motion.div>
+          </div>
         </div>
-      </div>
 
       {/* Main Content */}
-      <div className="bg-gray-50 py-12">
+        <div className="bg-gray-50 py-12">
         <div className="container mx-auto px-6">
           {/* About Us Section with Image */}
           <motion.section 
@@ -242,6 +242,7 @@ const api = import.meta.env.VITE_API_URL || '';
             </div>
           </motion.section>
 
+          {/* HOD Message Section */}
           <HodMessage/>
 
 

@@ -209,23 +209,7 @@ function Ragging() {
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* Message Banner */}
-        {/* <div className="mt-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center justify-between">
-          <div className="mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold">Stand Against Ragging</h3>
-            <p className="mt-2 text-blue-100">CSE department is committed to a safe, respectful academic environment for all students.</p>
-          </div>
-          <a 
-            href="https://www.antiragging.in/Site/Affidavits_Registration.aspx" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-white text-indigo-700 font-medium rounded-lg hover:bg-indigo-50 transition-colors shadow-md"
-          >
-            Submit Anti-Ragging Affidavit
-          </a>
-        </div> */}
+        </div>      
       </div>
     </div>
   );
